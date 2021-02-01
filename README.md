@@ -20,4 +20,4 @@ Success criteria for Good Habits will be based on three stages.
 * The second stage can be reached if the user receives 3 out of the five rating stars. 
 * Finally, the third stage can be reached when the user uses the Good Habits application for more than 66 days as it takes 66 days for a habit to become automatic behavior.
 
-If all these three stages are completed, we can confidently say that the utilisation of this app was successful 
+If all these three stages are completed, we can confidently say that the utilisation of this app was successful.
