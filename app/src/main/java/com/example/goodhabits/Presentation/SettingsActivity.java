@@ -1,19 +1,21 @@
-package com.example.goodhabits;
+package com.example.goodhabits.Presentation;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-public class ProfileActivity extends AppCompatActivity {
+import com.example.goodhabits.R;
+
+public class SettingsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_settings);
 
         // Title Bar text
-        setTitle("Profile");
+        setTitle("Settings");
 
         // Tapping the back button takes you to Home Screen
         ActionBar actionBar = getSupportActionBar();

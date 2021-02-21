@@ -1,9 +1,12 @@
-package com.example.goodhabits;
+package com.example.goodhabits.Presentation;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+
+import com.example.goodhabits.R;
+
 
 public class AllHabitsActivity extends AppCompatActivity {
 

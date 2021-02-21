@@ -1,9 +1,8 @@
-package com.example.goodhabits;
+package com.example.goodhabits.Presentation;
 
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
-import android.support.v4.app.*;
 import android.text.format.DateFormat;
 
 import androidx.annotation.NonNull;

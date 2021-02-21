@@ -1,23 +1,27 @@
-package com.example.goodhabits;
+package com.example.goodhabits.Presentation;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
+import android.annotation.SuppressLint;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import com.example.goodhabits.Objects.Habit;
+import com.example.goodhabits.Persistence.HabitStorage;
+import com.example.goodhabits.R;
+
 
 public class AddActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener{
     //Fields
@@ -47,10 +51,10 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
         //Get the name of the Habit when it is Written
-        Habit_Name=findViewById(R.id.habit_name);
+        Habit_Name=findViewById(R.id.habit_name_input);
 
         //Tapping a RadioButton to determine type of Habit
-        Habit_type=findViewById(R.id.radiogroup);
+        Habit_type=findViewById(R.id.habit_type_group);
         Habit_type.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
@@ -59,9 +63,8 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
             }
         });
 
-
         //When the User message is written
-        User_Msg=findViewById(R.id.habit_msg);
+        User_Msg=findViewById(R.id.habit_message_input);
 
         //Tapping the Time Picker Button to select a time for the activity regarding the habit
         time_Btn=findViewById(R.id.time_picker);
@@ -74,7 +77,7 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
         });
 
         //Tapping the "Submit" Button on the addHabit form
-        Submit_Btn=findViewById(R.id.submit_button);
+        Submit_Btn=findViewById(R.id.submit_habit);
         Submit_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -94,11 +97,11 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
                 checkToaster();
 
                 //If any Toast message is NOT displayed
-                if(ToastFired==false) {
+                if(!ToastFired) {
                     //Create a Habit
                     Habit newHabit=createHabit(name,type_button,msg,hour,minute);
                     //Add the Habit to the list of Habits
-                    //addHabit(newHabit);
+                    addHabit(newHabit);
                     //Go to the main screen
                     startActivity(new Intent(AddActivity.this, MainActivity.class));
                 }
@@ -113,20 +116,49 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
         int radioId= Habit_type.getCheckedRadioButtonId();
         //Assign it to our RadioButton Variable
         type_button=findViewById(radioId);
-
     }
 
     //This Function displays the time selected and stores the time selected by the user
+    @SuppressLint("SetTextI18n")
     @Override
     public void onTimeSet(TimePicker timePicker, int hourOfDay, int minuteOfHour) {
         //Show the time selected by the user
-        TextView textView=(TextView)findViewById(R.id.textView7);
-        textView.setText("Hour: "+hourOfDay+" Minute: "+minuteOfHour);
+        TextView textView=(TextView)findViewById(R.id.time_picker_label);
+
+        String tempHour = "";
+        String tempMin= "";
+        String flag = "";
+
+        if(hourOfDay == 12) {
+            tempHour = Integer.toString(hourOfDay);
+            flag = " PM";
+        }
+        else if(hourOfDay >= 12) {
+            tempHour = Integer.toString(hourOfDay - 12);
+            flag = " PM";
+        }
+        else{
+            if(hourOfDay == 0)
+                tempHour = Integer.toString(12);
+            else
+                tempHour = Integer.toString(hourOfDay);
+            flag = " AM";
+        }
+
+        if(minuteOfHour == 0)
+            tempMin = "00";
+        else if(Integer.toString(minuteOfHour).length() == 1)
+            tempMin = "0"+ minuteOfHour;
+        else
+            tempMin = Integer.toString(minuteOfHour);
+
+        System.out.println(hourOfDay+" "+minuteOfHour);
+        textView.setText(tempHour+":"+tempMin+flag);
+
         //Store the time selected by the user
         hour=hourOfDay;
         minute=minuteOfHour;
     }
-
 
     // Delegate function that recognises the tap on back button of this Activity
     public boolean onOptionsItemSelected(MenuItem item){
@@ -137,24 +169,25 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
         return super.onOptionsItemSelected(item);
     }
 
-    //This function creates a new Habit
+    // This function creates a new Habit
     public Habit createHabit(String hName, RadioButton hType, String hMsg, int hTime, int mTime) {
         //A boolean variable that is true for Good_Habit and false for Bad_Habit
         boolean boolType;
-        if (hType.getId() == findViewById(R.id.Good_Habit).getId()) {
+        if(hType.getId() == findViewById(R.id.good_habit).getId()) {
             boolType = true;
         } else
         {
             boolType=false;
         }
-        return new Habit(hName,boolType,hMsg,hTime,mTime);
+        return new Habit(hName, boolType, hMsg, hTime, mTime);
     }
 
-    //This Function Adds a new Habit to the list of Habits
-//    public void addHabit(Habit h)
-//    {
-//
-//    }
+    // This Function Adds a new Habit to the list of Habits
+    public void addHabit(Habit habit)
+    {
+        HabitStorage storage = new HabitStorage();
+        storage.addToHabitStorage(habit);
+    }
 
     public void checkToaster()
     {
@@ -176,7 +209,5 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
             Toast.makeText(this,"You have to assign a name to your Habit",Toast.LENGTH_SHORT).show();
             ToastFired=true;
         }
-
     }
 }
-
