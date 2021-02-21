@@ -5,4 +5,22 @@
     <string name="add">Add</string>
     <string name="all_habits">All Habits</string>
     <string name="profile">Profile</string>
+    <string name="email">Email</string>
+    <string name="name">Name</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="done">Done</string>
+    <string name="habit_name">Habit Name</string>
+    <string name="enter_your_email_address">Enter your email address</string>
+    <string name="what_type_of_habit">What type of Habit?</string>
+    <string name="good_habit">Good Habit</string>
+    <string name="bad_habit">Bad Habit</string>
+    <string name="assign_a_message">Assign a message</string>
+    <string name="this_message_will_act_as_a_reminder">This message will act as a reminder</string>
+    <string name="select_time">Select Time</string>
+    <string name="open_time_picker">Open Time Picker</string>
+    <string name="submit">Submit</string>
+    <string name="enter_the_habit_name">Enter the Habit name</string>
+    <string name="habit_type">Habit Type</string>
+    <string name="enter_a_message_related_to_this_habit">Enter a message related to this habit</string>
+    <string name="pick_a_time">Pick a time</string>
 </resources>

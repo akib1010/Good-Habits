@@ -1,4 +1,5 @@
-package com.example.goodhabits;
+package com.example.goodhabits.Objects;
+
 //This class is a Data structure for "Habit"
 public class Habit {
     private String name;//Name of Habit
@@ -7,33 +8,49 @@ public class Habit {
     private int hour;//Used to handle the hour of the day for the activity
     private int minute;//Used to handle the minute of the hour for the activity
 
-    public Habit(String Name,boolean Type,String Msg,int Hour,int Minute)
+    public Habit(String name,boolean type,String msg,int hour,int minute)
     {
-        name=Name;
-        type=Type;
-        msg=Msg;
-        hour=Hour;
-        minute=Minute;
+        this.name=name;
+        this.type=type;
+        this.msg=msg;
+        this.hour=hour;
+        this.minute=minute;
     }
+
     //Returns name of Habit
-    public String getHabitName()
-    {
+    public String getHabitName(){
         return this.name;
     }
+
     //Returns Type of Habit, If true then it is a "Good Habit" else it is a "Bad Habit"
-    public boolean HabitType()
-    {
+    public boolean getHabitType() {
         return this.type;
     }
+
     //Returns the Users message
-    public String HabitMsg()
-    {
+    public String getHabitMsg() {
         return this.msg;
     }
+
     //Returns the Time set for the Habit in an array format{Hour,Minute}
-    public int[] getHabitTime()
-    {
-        int[] arr={hour,minute};
-        return arr;
+    public int[] getHabitTime() {
+        return new int[]{hour,minute};
+    }
+
+    public void setHabitName(String name) {
+        this.name = name;
+    }
+
+    public void setHabitType(boolean type) {
+        this.type = type;
+    }
+
+    public void setHabitMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public void setHabitTime(int hour, int minute) {
+        this.hour = hour;
+        this.minute = minute;
     }
 }
