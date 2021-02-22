@@ -17,13 +17,10 @@ public class TimePickerFragment extends DialogFragment {
     @Override
     //This Function Prompts the user to select the desired time, default time is set to current time
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        //Calendar is used to take the current time
-        Calendar c=Calendar.getInstance();
-        //Current Hour
-        int hour=c.get(Calendar.HOUR_OF_DAY);
-        //Current Minute
-        int minute=c.get(Calendar.MINUTE);
-        //Returns the time selected by the user, shows current time as initial time
+        Calendar c = Calendar.getInstance();    // Calendar is used to take the current time
+        int hour = c.get(Calendar.HOUR_OF_DAY);    // Current Hour
+        int minute = c.get(Calendar.MINUTE);    // Current Minute
+        // Returns the time selected by the user, shows current time as initial time
         return new TimePickerDialog(getActivity(), (TimePickerDialog.OnTimeSetListener) getActivity(), hour,minute, DateFormat.is24HourFormat(getActivity()));
     }
 }

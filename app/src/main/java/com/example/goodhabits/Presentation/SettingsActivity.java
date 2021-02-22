@@ -14,10 +14,10 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        // Title Bar text
+        // Title Bar text for this Activity
         setTitle("Settings");
 
-        // Tapping the back button takes you to Home Screen
+        // Tapping the back button on the Action Bar takes you to Home Screen
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
