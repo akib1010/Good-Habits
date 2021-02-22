@@ -23,7 +23,9 @@ public class HabitStorage {
     }
 
     // Function to get the names of each Habit in the ArrayList, in the form of a String array
-    public static String[] getAllName(){
+    public static String[] getAllName() throws Exception{
+        if(habitStorage.size() == 0)
+            throw new Exception("ERROR: HabitStorage is empty");
         String[] result = new String[habitStorage.size()];
         for(int i=0; i<habitStorage.size(); i++){
             result[i] = habitStorage.get(i).getHabitName();
@@ -35,4 +37,9 @@ public class HabitStorage {
     public static int getStorageSize(){
         return habitStorage.size();
     }
+
+    public static void clearStorage(){
+        habitStorage.clear();
+    }
+
 }

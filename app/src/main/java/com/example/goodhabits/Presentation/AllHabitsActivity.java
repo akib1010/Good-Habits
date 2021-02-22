@@ -23,8 +23,13 @@ public class AllHabitsActivity extends AppCompatActivity {
 
         ListView listView = (ListView)findViewById(R.id.listview);
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, HabitStorage.getAllName());
-        listView.setAdapter(arrayAdapter);
+        try {
+            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, HabitStorage.getAllName());
+            listView.setAdapter(arrayAdapter);
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
 
         // Show a toast message when a row in the list view is clicked
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
