@@ -10,11 +10,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.goodhabits.Persistence.HabitStorage;
-import com.example.goodhabits.Objects.Habit;
 
 import com.example.goodhabits.R;
 
 public class AllHabitsActivity extends AppCompatActivity {
+
+    MainActivity activity = new MainActivity();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +25,7 @@ public class AllHabitsActivity extends AppCompatActivity {
         ListView listView = (ListView)findViewById(R.id.listview);
 
         try {
-            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, HabitStorage.getAllName());
+            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, activity.habitStorage.getAllName());
             listView.setAdapter(arrayAdapter);
         }
         catch(Exception e){

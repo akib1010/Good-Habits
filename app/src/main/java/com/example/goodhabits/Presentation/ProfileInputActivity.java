@@ -20,15 +20,16 @@ public class ProfileInputActivity extends AppCompatActivity {
     // If false -> shows the Create a Profile Screen first
     boolean profileIsSet = true;
 
+    MainActivity activity = new MainActivity();
+
     @Override
     protected void onResume() {
         super.onResume();
 
         // If profileIsSet is true then fills profile with fake data and goes directly to Main Screen
         if(profileIsSet){
-            ProfileStorage storage = new ProfileStorage();
             Profile profile = new Profile("Comp3350-Group12", "comp3350group12@gmail.com");
-            storage.addToProfileStorage(profile);
+            activity.profileStorage.addToProfileStorage(profile);
             moveToMainActivity();
         }
     }
@@ -84,9 +85,8 @@ public class ProfileInputActivity extends AppCompatActivity {
         }
         // If all fields are filled, then store the Profile and go to Main Screen
         if(pass){
-            ProfileStorage storage = new ProfileStorage();
             Profile profile = new Profile(nameString, emailString);
-            storage.addToProfileStorage(profile);
+            activity.profileStorage.addToProfileStorage(profile);
             moveToMainActivity();
         }
     }

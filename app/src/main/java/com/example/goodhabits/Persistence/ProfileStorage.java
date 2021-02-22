@@ -5,11 +5,12 @@ import com.example.goodhabits.Objects.Profile;
 import java.util.ArrayList;
 
 // This Class acts as a storage for the User's profile information
-public class ProfileStorage {
-    private static ArrayList<Profile> profileStorage;
+public class ProfileStorage implements ProfileStorageManager {
+    // Non-persistence ArrayList to store the Habit object
+    private static final ArrayList<Profile> profileStorage = new ArrayList<>();;
 
     public ProfileStorage(){
-        profileStorage = new ArrayList<>();
+
     }
 
     // Function to add the User's profile to an ArrayList
@@ -18,7 +19,7 @@ public class ProfileStorage {
     }
 
     // Function to get the User's profile in the ArrayList
-    public static ArrayList<Profile> getProfileStorage(){
+    public ArrayList<Profile> getProfileStorage(){
         return profileStorage;
     }
 
