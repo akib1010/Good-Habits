@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.goodhabits.Logic.TimeParser;
 import com.example.goodhabits.Objects.Habit;
 import com.example.goodhabits.Persistence.HabitStorage;
 import com.example.goodhabits.R;
@@ -32,12 +33,14 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
     private int hour = -1; // Initialized to -1
     private int minute = -1; // Initialized to -1
     private boolean toastFired = false; // Used to check if any toast messages were shown
+
+    TimeParser time = new TimeParser();
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
-        
+
         // Contexts of the form that need to be stored
         EditText habitName;
         EditText habitMsg;
@@ -115,40 +118,11 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
     @SuppressLint("SetTextI18n")
     @Override
     public void onTimeSet(TimePicker timePicker, int hourOfDay, int minuteOfHour) {
-        // Show the time selected by the user
+        // Show the time selected by the user in 12 hr format for better understanding
         TextView textView=(TextView)findViewById(R.id.time_picker_label);
+        textView.setText(time.getTime(hourOfDay, minuteOfHour));
 
-        String tempHour = "";
-        String tempMin = "";
-        String flag = "";
-
-        if(hourOfDay == 12) {
-            tempHour = Integer.toString(hourOfDay);
-            flag = " PM";
-        }
-        else if(hourOfDay >= 12) {
-            tempHour = Integer.toString(hourOfDay - 12);
-            flag = " PM";
-        }
-        else{
-            if(hourOfDay == 0)
-                tempHour = Integer.toString(12);
-            else
-                tempHour = Integer.toString(hourOfDay);
-            flag = " AM";
-        }
-
-        if(minuteOfHour == 0)
-            tempMin = "00";
-        else if(Integer.toString(minuteOfHour).length() == 1)
-            tempMin = "0"+ minuteOfHour;
-        else
-            tempMin = Integer.toString(minuteOfHour);
-
-        System.out.println(hourOfDay+" "+minuteOfHour);
-        textView.setText(tempHour+":"+tempMin+flag);
-
-        // Store the time selected by the user
+        // Store the time selected by the user in 24 hr format for ease of coding
         hour = hourOfDay;
         minute = minuteOfHour;
     }
