@@ -10,11 +10,11 @@ public class Habit {
 
     public Habit(String name,boolean type,String msg,int hour,int minute)
     {
-        this.name=name;
-        this.type=type;
-        this.msg=msg;
-        this.hour=hour;
-        this.minute=minute;
+        this.name = name;
+        this.type = type;
+        this.msg = msg;
+        this.hour = hour;
+        this.minute = minute;
     }
 
     // Returns name of Habit
