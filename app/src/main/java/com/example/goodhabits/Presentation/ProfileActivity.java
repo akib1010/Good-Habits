@@ -43,7 +43,6 @@ public class ProfileActivity extends AppCompatActivity {
         email.setText(profileInfo[1]);
     }
 
-
     // Delegate function that recognises the tap on back button of this Activity
     public boolean onOptionsItemSelected(MenuItem item){
         if (item.getItemId() == android.R.id.home) {
