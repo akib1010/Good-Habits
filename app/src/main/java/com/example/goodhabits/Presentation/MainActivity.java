@@ -24,15 +24,19 @@ public class MainActivity extends AppCompatActivity {
             System.out.println("Title bar of main screen could not be removed.");
         }
 
+        // Clicking this button takes you to the Settings Screen
         ImageButton settings = (ImageButton) findViewById(R.id.settings_button);
         settings.setOnClickListener(v -> openSettingsActivity());
 
+        // Clicking this button takes you to the Add Habit Screen
         ImageButton add = (ImageButton) findViewById(R.id.add_button);
         add.setOnClickListener(v -> openAddActivity());
 
+        // Clicking this button takes you to the Screen with all the Habits created
         ImageButton allHabits = (ImageButton) findViewById(R.id.all_habits_button);
         allHabits.setOnClickListener(v -> openAllHabitsActivity());
 
+        // Clicking this button takes you to the User's Profile Screen
         ImageButton profile = (ImageButton) findViewById(R.id.user_profile_button);
         profile.setOnClickListener(v -> openProfileActivity());
     }
