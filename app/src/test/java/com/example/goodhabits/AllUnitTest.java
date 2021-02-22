@@ -37,4 +37,15 @@ public class AllUnitTest {
         assertEquals(1, HabitStorage.getStorageSize());
     }
 
+    @Test
+    public void checkEmptyStorage() {
+        HabitStorage.clearStorage();
+        try {
+            HabitStorage.getAllName();
+        }
+        catch (Exception e){
+            assertEquals("java.lang.Exception: ERROR: HabitStorage is empty", e.toString());
+        }
+    }
+
 }
