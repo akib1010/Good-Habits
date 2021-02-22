@@ -15,6 +15,8 @@ import java.util.ArrayList;
 
 public class ProfileActivity extends AppCompatActivity {
 
+    MainActivity activity = new MainActivity();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +31,7 @@ public class ProfileActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        ArrayList<Profile> list = ProfileStorage.getProfileStorage(); // getting the non-persistent profile info
+        ArrayList<Profile> list = activity.profileStorage.getProfileStorage(); // getting the non-persistent profile info
         String[] profileInfo = {list.get(0).getName(), list.get(0).getEmail()}; // putting the info in a String array
         fillProfileActivity(profileInfo);
     }

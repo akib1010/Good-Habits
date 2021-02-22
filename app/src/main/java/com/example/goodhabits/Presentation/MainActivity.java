@@ -10,11 +10,16 @@ import android.widget.TextView;
 
 import com.example.goodhabits.Objects.Habit;
 import com.example.goodhabits.Persistence.HabitStorage;
+import com.example.goodhabits.Persistence.ProfileStorage;
 import com.example.goodhabits.R;
 
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
+
+    // Creating non-persistence storage for Habit and Profile Objects
+    HabitStorage habitStorage = new HabitStorage();
+    ProfileStorage profileStorage = new ProfileStorage();
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -23,15 +28,15 @@ public class MainActivity extends AppCompatActivity {
 
         // Fake data to populate the List view
         // More Habits can be added to this List View by going to the Add a Habit Screen and creating a new Habit
-        if(HabitStorage.getStorageSize() == 0) {
-            HabitStorage.addToHabitStorage(new Habit("Quit Smoking", false, "Smoking causes Cancer.", 11, 30));
-            HabitStorage.addToHabitStorage(new Habit("Do Yoga", true, "Need to stay fit.", 8, 0));
-            HabitStorage.addToHabitStorage(new Habit("Drink Water", true, "Need to hydrate my body.", 10, 30));
+        if(habitStorage.getStorageSize() == 0) {
+            habitStorage.addToHabitStorage(new Habit("Quit Smoking", false, "Smoking causes Cancer.", 11, 30));
+            habitStorage.addToHabitStorage(new Habit("Do Yoga", true, "Need to stay fit.", 8, 0));
+            habitStorage.addToHabitStorage(new Habit("Drink Water", true, "Need to hydrate my body.", 10, 30));
         }
 
         // Updating the Total Habits count
         TextView habitCount = (TextView) findViewById(R.id.habit_count_view);
-        habitCount.setText(Integer.toString(HabitStorage.getStorageSize()));
+        habitCount.setText(Integer.toString(habitStorage.getStorageSize()));
     }
 
     @Override

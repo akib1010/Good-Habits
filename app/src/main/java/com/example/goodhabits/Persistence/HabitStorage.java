@@ -5,25 +5,26 @@ import com.example.goodhabits.Objects.Habit;
 import java.util.ArrayList;
 
 // This Class acts as a Storage for all the Habits created
-public class HabitStorage {
+public class HabitStorage implements HabitStorageManager{
     // Non-persistence ArrayList to store all the Habit objects
-    private static ArrayList<Habit> habitStorage = new ArrayList<>();
+    private static final ArrayList<Habit> habitStorage = new ArrayList<>();
 
     public HabitStorage(){
+
     }
 
     // Function to add a Habit to the ArrayList
-    public static void addToHabitStorage(Habit habit){
+    public void addToHabitStorage(Habit habit){
         habitStorage.add(habit);
     }
 
     // Function to get the full list of Habits
-    public static ArrayList<Habit> getHabitStorage(){
+    public ArrayList<Habit> getHabitStorage(){
         return habitStorage;
     }
 
     // Function to get the names of each Habit in the ArrayList, in the form of a String array
-    public static String[] getAllName() throws Exception{
+    public String[] getAllName() throws Exception{
         if(habitStorage.size() == 0)
             throw new Exception("ERROR: HabitStorage is empty");
         String[] result = new String[habitStorage.size()];
@@ -34,12 +35,8 @@ public class HabitStorage {
     }
 
     // Function to get the size of the ArrayList that has all the Habits
-    public static int getStorageSize(){
+    public int getStorageSize(){
         return habitStorage.size();
-    }
-
-    public static void clearStorage(){
-        habitStorage.clear();
     }
 
 }

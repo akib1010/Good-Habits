@@ -29,19 +29,22 @@ public class AllUnitTest {
         ProfileStorage storage = new ProfileStorage();
         storage.addToProfileStorage(new Profile("John Doe", "johndoe@gmail.com"));
         assertEquals(1, storage.getStorageSize());
+        assertEquals("John Doe", storage.getProfileStorage().get(0).getName());
     }
 
     @Test
     public void checkHabitInStorage() {
-        HabitStorage.addToHabitStorage(new Habit("Test Habit", true, "This is a Test Habit", 11, 30));
-        assertEquals(1, HabitStorage.getStorageSize());
+        HabitStorage storage = new HabitStorage();
+        storage.addToHabitStorage(new Habit("Test Habit", true, "This is a Test Habit", 11, 30));
+        assertEquals(1, storage.getStorageSize());
+        assertEquals("Test Habit", storage.getHabitStorage().get(0).getHabitName());
     }
 
     @Test
     public void checkEmptyStorage() {
-        HabitStorage.clearStorage();
+        HabitStorage storage = new HabitStorage();
         try {
-            HabitStorage.getAllName();
+            storage.getAllName();
         }
         catch (Exception e){
             assertEquals("java.lang.Exception: ERROR: HabitStorage is empty", e.toString());
