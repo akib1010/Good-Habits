@@ -23,14 +23,6 @@ public class AllHabitsActivity extends AppCompatActivity {
 
         ListView listView = (ListView)findViewById(R.id.listview);
 
-        // Fake data to populate the List view
-        // More Habits can be added to this List View by going to the Add a Habit Screen and creating a new Habit
-        if(HabitStorage.getStorageSize() == 0) {
-            HabitStorage.addToHabitStorage(new Habit("Quit Smoking", false, "Smoking causes Cancer.", 11, 30));
-            HabitStorage.addToHabitStorage(new Habit("Do Yoga", true, "Need to stay fit.", 8, 0));
-            HabitStorage.addToHabitStorage(new Habit("Drink Water", true, "Need to hydrate my body.", 10, 30));
-        }
-
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, HabitStorage.getAllName());
         listView.setAdapter(arrayAdapter);
 

@@ -23,4 +23,7 @@
     <string name="habit_type">Habit Type</string>
     <string name="enter_a_message_related_to_this_habit">Enter a message related to this habit</string>
     <string name="pick_a_time">Pick a time</string>
+    <string name="total_habits">Total Habits:</string>
+    <string name="count">Count</string>
+    <string name="dashboard">Dashboard</string>
 </resources>

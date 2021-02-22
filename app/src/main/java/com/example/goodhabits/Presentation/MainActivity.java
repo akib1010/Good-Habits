@@ -1,15 +1,38 @@
 package com.example.goodhabits.Presentation;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
+import com.example.goodhabits.Objects.Habit;
+import com.example.goodhabits.Persistence.HabitStorage;
 import com.example.goodhabits.R;
 
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
+
+    @SuppressLint("SetTextI18n")
+    @Override
+    protected void onResume(){
+        super.onResume();
+
+        // Fake data to populate the List view
+        // More Habits can be added to this List View by going to the Add a Habit Screen and creating a new Habit
+        if(HabitStorage.getStorageSize() == 0) {
+            HabitStorage.addToHabitStorage(new Habit("Quit Smoking", false, "Smoking causes Cancer.", 11, 30));
+            HabitStorage.addToHabitStorage(new Habit("Do Yoga", true, "Need to stay fit.", 8, 0));
+            HabitStorage.addToHabitStorage(new Habit("Drink Water", true, "Need to hydrate my body.", 10, 30));
+        }
+
+        // Updating the Total Habits count
+        TextView habitCount = (TextView) findViewById(R.id.habit_count_view);
+        habitCount.setText(Integer.toString(HabitStorage.getStorageSize()));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

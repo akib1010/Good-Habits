@@ -40,7 +40,7 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
-        
+
         // Contexts of the form that need to be stored
         EditText habitName;
         EditText habitMsg;
