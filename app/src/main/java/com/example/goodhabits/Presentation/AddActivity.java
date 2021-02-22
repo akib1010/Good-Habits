@@ -185,8 +185,9 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
     // This Function Adds a new Habit to the list of Habits
     public void addHabit(Habit habit)
     {
-        HabitStorage storage = new HabitStorage();
-        storage.addToHabitStorage(habit);
+       // HabitStorage storage = new HabitStorage();
+       // storage.addToHabitStorage(habit);
+        HabitStorage.addToHabitStorage(habit);
     }
 
     public void checkToaster()
