@@ -21,9 +21,4 @@ public class ProfileStorage {
     public static ArrayList<Profile> getProfileStorage(){
         return profileStorage;
     }
-
-    // Function to get the size of the ArrayList containing the profile
-    public static int getStorageSize(){
-        return profileStorage.size();
-    }
 }
