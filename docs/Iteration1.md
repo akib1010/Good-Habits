@@ -27,9 +27,15 @@ While rendering the list view we wanted to get the names of all the habits creat
 [Branching Stretegy](Link here)
 
 
-#### SOLID
+#### SOLID Principal Violation
 ---
-Wait for group 1 to do more stuff as stated by professor 
+Group 1 - Violation of Interface segregation principal 
+They require an interface for thier Data layer i.e. ```ItemStorgae.java```
+
+
+[Issue Link](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group-1/-/commit/b4c627eb624d5367452460338c8980a2e45fd3a6)
+
+[]
 
 ### Agile Planning 
 ---
