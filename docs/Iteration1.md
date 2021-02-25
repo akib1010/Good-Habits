@@ -29,12 +29,14 @@ While rendering the list view we wanted to get the names of all the habits creat
 
 #### SOLID Principal Violation
 ---
-Group 1 - Violation of Interface segregation principal 
-They require an interface for thier Data layer i.e. ```ItemStorgae.java```
+Group 1 Violation - Dependency Inversion Principle
+The ```ItemList.java``` is dependent on both ```Node.java``` and ```Item.java```.
+Creating a ```Node``` and ```Item``` instance in ```ItemList``` is clear violation of dependency inversion principle 
 
 
-[Issue Link](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group-1/-/commit/b4c627eb624d5367452460338c8980a2e45fd3a6)
 
+[Issue Link](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group-1/-/issues/17)
+[Commit Link](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group-1/-/commit/064facb21c5076a7c693247ba4cb24214810ed08)
 ### Agile Planning 
 ---
  Initially our tasks were distributed amongst five people but now that our group consists of four members, we have decided to push the feature [Detailed view of each habit](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group-12/good-habits-a02-12/-/issues/4) to Iteration 2.
