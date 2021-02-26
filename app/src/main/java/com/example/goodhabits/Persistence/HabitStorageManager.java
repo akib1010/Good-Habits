@@ -8,5 +8,5 @@ public interface HabitStorageManager {
     public void addToHabitStorage(Habit habit);
     public ArrayList<Habit> getHabitStorage();
     public String[] getAllName() throws Exception;
-    public int getStorageSize();
+    public int getHabitStorageSize();
 }

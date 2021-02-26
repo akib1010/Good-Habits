@@ -19,13 +19,14 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.goodhabits.Logic.TimeParser;
+import com.example.goodhabits.Logic.TimePickerFragment;
 import com.example.goodhabits.Objects.Habit;
-import com.example.goodhabits.Persistence.HabitStorage;
 import com.example.goodhabits.R;
 
 
 // This Class helps create a new Habit
 public class AddActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener{
+
     private String name;
     private RadioGroup typeGroup;
     private RadioButton type;
@@ -46,7 +47,7 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
         EditText habitName;
         EditText habitMsg;
         Button timeButton;
-        Button submitButton;
+        Button addButton;
 
         // Title Bar text for this Activity
         setTitle("Add a Habit");
@@ -83,8 +84,8 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
         });
 
         // Tapping the "Submit" Button on the addHabit form
-        submitButton = findViewById(R.id.submit_habit);
-        submitButton.setOnClickListener(new View.OnClickListener() {
+        addButton = findViewById(R.id.submit_habit);
+        addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 toastFired = false; // This boolean value is used to check if any toast messages are give
@@ -93,10 +94,8 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
                 // Get the typeGroup selected (If the user does not click on the RadioButtons)
                 int radioId = typeGroup.getCheckedRadioButtonId();
                 type = findViewById(radioId);
-
                 msg = habitMsg.getText().toString(); // Get the User message
-
-                checkToaster(); // Check for toast message
+                validateForm(); // Check for toast message
 
                 // If any Toast message is NOT displayed
                 if(!toastFired) {
@@ -140,13 +139,7 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
     // This function creates a new Habit
     public Habit createHabit(String hName, RadioButton hType, String hMsg, int hTime, int mTime) {
         // A boolean variable that is true for Good_Habit and false for Bad_Habit
-        boolean boolType;
-        if(hType.getId() == findViewById(R.id.good_habit).getId()) {
-            boolType = true;
-        }
-        else {
-            boolType = false;
-        }
+        boolean boolType = hType.getId() == findViewById(R.id.good_habit).getId();
         return new Habit(hName, boolType, hMsg, hTime, mTime);
     }
 
@@ -156,24 +149,29 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
         activity.habitStorage.addToHabitStorage(habit);
     }
 
-    public void checkToaster()
-    {
-        // Check if the user selected a time
-        if(hour == -1 && minute == -1)
-        {
-            Toast.makeText(this,"You have to select a time",Toast.LENGTH_SHORT).show();
-            toastFired = true;
-        }
-        // Check if the user selected a type of Habit
-        if(typeGroup.getCheckedRadioButtonId() == -1)
-        {
-            Toast.makeText(this,"You have select a type of Habit",Toast.LENGTH_SHORT).show();
-            toastFired = true;
-        }
+    public void validateForm() {
+        boolean flag = true;
+
         // Check if the user gave a Habit a name
-        if(name == null || name.length() < 1)
+        if(name == null || name.length() == 0)
         {
-            Toast.makeText(this,"You have to assign a name to your Habit",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Habit name is missing!",Toast.LENGTH_SHORT).show();
+            toastFired = true;
+            flag = false;
+        }
+
+        // Check if the user selected a type of Habit
+        if(typeGroup.getCheckedRadioButtonId() == -1 && flag)
+        {
+            Toast.makeText(this,"Habit type is missing!",Toast.LENGTH_SHORT).show();
+            toastFired = true;
+            flag = false;
+        }
+
+        // Check if the user selected a time
+        if(hour == -1 && minute == -1 && flag)
+        {
+            Toast.makeText(this,"Time is not chosen!",Toast.LENGTH_SHORT).show();
             toastFired = true;
         }
     }
