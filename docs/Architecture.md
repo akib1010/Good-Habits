@@ -6,12 +6,14 @@ GoodHabits app is based on 3 tier architechture
 * Persistense Layer
 
 ### Visualization 
-![Architecture]()
+---
+![Architecture](/docs/Architecture.png)
 
 
 
 
 ### Description 
+---
 #### **Presentation Layer**
 Presentation Layer consists of all the user interaction files 
 ```
