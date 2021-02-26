@@ -1,5 +1,5 @@
 # Architecture 
----
+
 GoodHabits app is based on 3 tier architechture 
 * Presentation Layer 
 * Logic Layer
