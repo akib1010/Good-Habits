@@ -1,4 +1,5 @@
 # Branching Strategy 
+
 ### Description 
 ---
 We used **GitHub Flow** as our branching strategy.
