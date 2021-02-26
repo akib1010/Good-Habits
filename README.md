@@ -1,5 +1,5 @@
 # GOOD HABITS 
-*** 
+
 
 ### Summary
 Good Habits is a habit-tracking application that can be used to develop good habits or get rid of bad habits.
