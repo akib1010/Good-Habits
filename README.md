@@ -32,7 +32,7 @@ Good Habits is a habit-tracking application that can be used to develop good hab
 
 ### Architecture
 ---
-* Planned [Architecture](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group-12/good-habits-a02-12/-/blob/iteration-1docs/docs/Architecture.md) for our project 
+* Planned [Architecture](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group-12/good-habits-a02-12/-/blob/iteration-1docs/docs/ARCHITECTURE.md) for our project 
 
 ### Coding Style 
 ---
