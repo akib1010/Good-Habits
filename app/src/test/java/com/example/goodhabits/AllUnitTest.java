@@ -28,15 +28,14 @@ public class AllUnitTest {
     public void checkProfileInStorage() {
         ProfileStorage storage = new ProfileStorage();
         storage.addToProfileStorage(new Profile("John Doe", "johndoe@gmail.com"));
-        assertEquals(1, storage.getStorageSize());
-        assertEquals("John Doe", storage.getProfileStorage().get(0).getName());
+        assertEquals("John Doe", storage.getProfileStorage().getName());
     }
 
     @Test
     public void checkHabitInStorage() {
         HabitStorage storage = new HabitStorage();
         storage.addToHabitStorage(new Habit("Test Habit", true, "This is a Test Habit", 11, 30));
-        assertEquals(1, storage.getStorageSize());
+        assertEquals(1, storage.getHabitStorageSize());
         assertEquals("Test Habit", storage.getHabitStorage().get(0).getHabitName());
     }
 

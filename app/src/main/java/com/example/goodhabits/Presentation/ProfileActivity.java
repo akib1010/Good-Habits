@@ -31,8 +31,8 @@ public class ProfileActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        ArrayList<Profile> list = activity.profileStorage.getProfileStorage(); // getting the non-persistent profile info
-        String[] profileInfo = {list.get(0).getName(), list.get(0).getEmail()}; // putting the info in a String array
+        Profile profile = activity.profileStorage.getProfileStorage(); // getting the non-persistent profile info
+        String[] profileInfo = {profile.getName(), profile.getEmail()}; // putting the info in a String array
         fillProfileActivity(profileInfo);
     }
 

@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.goodhabits.Objects.Profile;
-import com.example.goodhabits.Persistence.ProfileStorage;
 import com.example.goodhabits.R;
 
 
@@ -18,7 +17,9 @@ public class ProfileInputActivity extends AppCompatActivity {
     // This can be toggled to skip the Create a Profile Screen
     // If true -> fills profile with fake data and goes directly to Main Screen
     // If false -> shows the Create a Profile Screen first
-    boolean profileIsSet = true;
+    private final boolean profileIsSet = false;
+    private EditText profileName;
+    private EditText profileEmail;
 
     MainActivity activity = new MainActivity();
 
@@ -42,6 +43,12 @@ public class ProfileInputActivity extends AppCompatActivity {
         // Title Bar text for this Activity
         setTitle("Create a Profile");
 
+        // Extracting the profileName given by the user
+        profileName = (EditText)findViewById(R.id.name_input);
+
+        // Extracting the profileEmail given by the user
+        profileEmail = (EditText)findViewById(R.id.email_input);
+
         // Button that validates Profile info, after being clicked
         Button done = (Button) findViewById(R.id.submit_profile);
         done.setOnClickListener(v -> validateForm());
@@ -57,35 +64,22 @@ public class ProfileInputActivity extends AppCompatActivity {
     public void validateForm(){
         boolean pass = true;
 
-        // Extracting the name given by the user
-        EditText name = (EditText)findViewById(R.id.name_input);
-        String nameString = name.getText().toString();
+        String name = profileName.getText().toString();
+        String email = profileEmail.getText().toString();
 
-        // Extracting the email given by the user
-        EditText email = (EditText)findViewById(R.id.email_input);
-        String emailString = email.getText().toString();
-
-        // Fire a toast message if both the input fields are empty
-        if(nameString.equals("") && emailString.equals("")){
-            Toast myToast = Toast.makeText(this, "Please enter your name and email address!", Toast.LENGTH_SHORT);
-            myToast.show();
-            pass = false;
-        }
         // Fire a toast message if name field is empty
-        if(nameString.equals("") && pass){
-            Toast myToast = Toast.makeText(this, "Please enter your name!", Toast.LENGTH_SHORT);
-            myToast.show();
+        if(name.equals("")){
+            Toast.makeText(this, "Name is missing!", Toast.LENGTH_SHORT).show();
             pass = false;
         }
         // Fire a toast message if email field is empty
-        if(emailString.equals("") && pass){
-            Toast myToast = Toast.makeText(this, "Please enter your email!", Toast.LENGTH_SHORT);
-            myToast.show();
+        if(email.equals("") && pass){
+            Toast.makeText(this, "Email is missing!", Toast.LENGTH_SHORT).show();
             pass = false;
         }
         // If all fields are filled, then store the Profile and go to Main Screen
         if(pass){
-            Profile profile = new Profile(nameString, emailString);
+            Profile profile = new Profile(name, email);
             activity.profileStorage.addToProfileStorage(profile);
             moveToMainActivity();
         }

@@ -35,7 +35,7 @@ public class HabitStorage implements HabitStorageManager{
     }
 
     // Function to get the size of the ArrayList that has all the Habits
-    public int getStorageSize(){
+    public int getHabitStorageSize(){
         return habitStorage.size();
     }
 

@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Fake data to populate the List view
         // More Habits can be added to this List View by going to the Add a Habit Screen and creating a new Habit
-        if(habitStorage.getStorageSize() == 0) {
+        if(habitStorage.getHabitStorageSize() == 0) {
             habitStorage.addToHabitStorage(new Habit("Quit Smoking", false, "Smoking causes Cancer.", 11, 30));
             habitStorage.addToHabitStorage(new Habit("Do Yoga", true, "Need to stay fit.", 8, 0));
             habitStorage.addToHabitStorage(new Habit("Drink Water", true, "Need to hydrate my body.", 10, 30));
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Updating the Total Habits count
         TextView habitCount = (TextView) findViewById(R.id.habit_count_view);
-        habitCount.setText(Integer.toString(habitStorage.getStorageSize()));
+        habitCount.setText(Integer.toString(habitStorage.getHabitStorageSize()));
     }
 
     @Override
