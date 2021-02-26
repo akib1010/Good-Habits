@@ -1,5 +1,6 @@
 # Branching Strategy 
 ### Description 
+---
 We used **GitHub Flow** as our branching strategy.
 * We made branches for every feature and once those features were implemented and tested, it was merged with the master branch.
 * One member of our group was assigned to handle the merge requests.
@@ -9,4 +10,5 @@ We used **GitHub Flow** as our branching strategy.
 
 
 ### Graph
+---
 [Graph](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group-12/good-habits-a02-12/-/network/master)
