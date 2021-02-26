@@ -10,9 +10,9 @@
 Feature Name - [Option to start or quit a habit](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group-12/good-habits-a02-12/-/issues/2)
 
 Links -
-[feature](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group-12/good-habits-a02-12/-/issues/2)
-[user stories]()
-[merege requests](link)
+<br>[feature](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group-12/good-habits-a02-12/-/issues/2)
+<br>[user stories]()
+<br>[merege requests](link)
 
 #### Exceptional code 
 ---
