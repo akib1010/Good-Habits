@@ -17,7 +17,7 @@ public class ProfileInputActivity extends AppCompatActivity {
     // This can be toggled to skip the Create a Profile Screen
     // If true -> fills profile with fake data and goes directly to Main Screen
     // If false -> shows the Create a Profile Screen first
-    private final boolean profileIsSet = false;
+    private final boolean profileIsSet = true;
     private EditText profileName;
     private EditText profileEmail;
 
