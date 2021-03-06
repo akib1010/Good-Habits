@@ -36,12 +36,12 @@ public class DateParser {
         return startDate.equals(endDate);
     }
 
-    public int daysPassed(String startDate, String currDate) throws ParseException {
+    public int getDaysPassed(String startDate, String currDate) throws ParseException {
         Date date1 = dateFormat.parse(startDate);
         Date date2 = dateFormat.parse(currDate);
 
         long difference = date2.getTime() - date1.getTime();
         float days = (float)(difference / (1000 *60*60*24));
-        return (int)days;
+        return (int)days+1;
     }
 }

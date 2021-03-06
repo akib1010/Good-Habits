@@ -11,7 +11,8 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         StorageTest.class,
-        TimeTest.class
+        TimeTest.class,
+        DateTest.class
 })
 public class AllUnitTest {
 
