@@ -1,6 +1,7 @@
 package com.example.goodhabits.Objects;
 
 import java.io.Serializable;
+import java.util.Date;
 
 // This is a Class for the Habit object
 public class Habit implements Serializable {
@@ -9,6 +10,10 @@ public class Habit implements Serializable {
     private String msg; // A message that the user writes inorder to engage in an activity
     private int hour; // Used to handle the hour of the day for the Habit
     private int minute; // Used to handle the minute of the hour for the Habit
+    private String startDate;
+    private String endDate;
+    private String currDate;
+    private int daysCheckedIn;
 
     public Habit(String name,boolean type,String msg,int hour,int minute)
     {
@@ -17,6 +22,9 @@ public class Habit implements Serializable {
         this.msg = msg;
         this.hour = hour;
         this.minute = minute;
+//        this.startDate = startDate;
+//        this.endDate = endDate;
+        this.daysCheckedIn = 0;
     }
 
     // Returns name of Habit

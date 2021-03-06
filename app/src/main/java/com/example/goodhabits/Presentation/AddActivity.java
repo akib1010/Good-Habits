@@ -23,6 +23,8 @@ import com.example.goodhabits.Logic.TimePickerFragment;
 import com.example.goodhabits.Objects.Habit;
 import com.example.goodhabits.R;
 
+import java.util.Date;
+
 
 // This Class helps create a new Habit
 public class AddActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener{
@@ -119,7 +121,7 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
     @Override
     public void onTimeSet(TimePicker timePicker, int hourOfDay, int minuteOfHour) {
         // Show the time selected by the user in 12 hr format for better understanding
-        TextView textView=(TextView)findViewById(R.id.time_picker_label);
+        TextView textView = (TextView)findViewById(R.id.time_picker_label);
         textView.setText(time.getTime(hourOfDay, minuteOfHour));
 
         // Store the time selected by the user in 24 hr format for ease of coding
@@ -175,4 +177,5 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
             toastFired = true;
         }
     }
+
 }
