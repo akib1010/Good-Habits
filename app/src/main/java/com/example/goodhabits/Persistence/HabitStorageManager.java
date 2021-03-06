@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public interface HabitStorageManager {
     public void addToHabitStorage(Habit habit);
-    public ArrayList<Habit> getHabitStorage();
-    public String[] getAllName() throws Exception;
+    public ArrayList<Habit> getHabitList();
+    public String[] getAllHabitNames() throws Exception;
     public int getHabitStorageSize();
 }

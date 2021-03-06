@@ -1,7 +1,9 @@
 package com.example.goodhabits.Objects;
 
+import java.io.Serializable;
+
 // This is a Class for the Habit object
-public class Habit {
+public class Habit implements Serializable {
     private String name; // Name of Habit
     private boolean type; // Type of Habit, If true then it is a "Good Habit" else it is a "Bad Habit"
     private String msg; // A message that the user writes inorder to engage in an activity

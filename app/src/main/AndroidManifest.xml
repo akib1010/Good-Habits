@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GoodHabits">
+        <activity android:name=".Presentation.DetailActivity"></activity>
         <activity android:name=".Presentation.MainActivity" />
         <activity android:name=".Presentation.ProfileActivity" />
         <activity android:name=".Presentation.SettingsActivity" />

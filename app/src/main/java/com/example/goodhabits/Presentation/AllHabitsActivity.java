@@ -1,22 +1,25 @@
 package com.example.goodhabits.Presentation;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.example.goodhabits.Persistence.HabitStorage;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.goodhabits.Objects.Habit;
 import com.example.goodhabits.R;
+
+import java.util.ArrayList;
 
 public class AllHabitsActivity extends AppCompatActivity {
 
     MainActivity activity = new MainActivity();
+    ArrayList<Habit> habitList = activity.habitStorage.getHabitList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +27,10 @@ public class AllHabitsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_all_habits);
 
         ListView listView = (ListView)findViewById(R.id.listview);
+        Intent intent = new Intent(this, DetailActivity.class);
 
         try {
-            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, activity.habitStorage.getAllName());
+            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, activity.habitStorage.getAllHabitNames());
             listView.setAdapter(arrayAdapter);
         }
         catch(Exception e){
@@ -36,8 +40,9 @@ public class AllHabitsActivity extends AppCompatActivity {
         // Show a toast message when a row in the list view is clicked
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
-
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long id) {
+                intent.putExtra("Habit", habitList.get(i));
+                startActivity(intent);
             }
         });
 

@@ -19,12 +19,12 @@ public class HabitStorage implements HabitStorageManager{
     }
 
     // Function to get the full list of Habits
-    public ArrayList<Habit> getHabitStorage(){
+    public ArrayList<Habit> getHabitList(){
         return habitStorage;
     }
 
     // Function to get the names of each Habit in the ArrayList, in the form of a String array
-    public String[] getAllName() throws Exception{
+    public String[] getAllHabitNames() throws Exception{
         if(habitStorage.size() == 0)
             throw new Exception("ERROR: HabitStorage is empty");
         String[] result = new String[habitStorage.size()];
