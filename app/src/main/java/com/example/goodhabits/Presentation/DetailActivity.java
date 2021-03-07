@@ -2,9 +2,12 @@ package com.example.goodhabits.Presentation;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.goodhabits.Logic.DateParser;
@@ -23,14 +26,16 @@ public class DetailActivity extends AppCompatActivity {
     TextView endDate;
     TextView daysPassed;
     TextView checkins;
+    ProgressBar progressBar;
     Button checkInButton;
 
     int index;
     Habit habit;
-    MainActivity activity = new MainActivity();
-    ArrayList<Habit> habitList = activity.habitStorage.getHabitList();
     DateParser dateParser = new DateParser();
     TimeParser timeParser = new TimeParser();
+    MainActivity activity = new MainActivity();
+    ArrayList<Habit> habitList = activity.habitStorage.getHabitList();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +74,10 @@ public class DetailActivity extends AppCompatActivity {
             checkins = (TextView) findViewById(R.id.dv_checkins);
             checkins.setText(String.valueOf(habit.getDaysCheckedIn()));
 
+            progressBar = (ProgressBar)findViewById(R.id.dv_progress_bar);
+            progressBar.getProgressDrawable().setColorFilter(Color.parseColor("#fbc263"), android.graphics.PorterDuff.Mode.SRC_IN);
+            progressBar.setProgress(habit.getDaysCheckedIn());
+
             checkInButton = (Button) findViewById(R.id.dv_check_in_button);
             checkInButton.setOnClickListener(v -> increaseCheckIn());
         }
@@ -97,7 +106,10 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     public void increaseCheckIn(){
-        habit.increaseCheckIn();
-        checkins.setText(String.valueOf(habit.getDaysCheckedIn()));
+        if (habit.getDaysCheckedIn() < 66){
+            habit.increaseCheckIn();
+            checkins.setText(String.valueOf(habit.getDaysCheckedIn()));
+            progressBar.setProgress(habit.getDaysCheckedIn());
+        }
     }
 }

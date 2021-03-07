@@ -33,4 +33,7 @@
     <string name="checkins">Checkins</string>
     <string name="notification_time">Notification Time</string>
     <string name="check_in">Check In</string>
+    <string name="days_checked_in">Days Checked In</string>
+    <string name="_0">0</string>
+    <string name="_66">66</string>
 </resources>
