@@ -18,12 +18,11 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.goodhabits.Logic.DateParser;
 import com.example.goodhabits.Logic.TimeParser;
 import com.example.goodhabits.Logic.TimePickerFragment;
 import com.example.goodhabits.Objects.Habit;
 import com.example.goodhabits.R;
-
-import java.util.Date;
 
 
 // This Class helps create a new Habit
@@ -38,6 +37,7 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
     private boolean toastFired = false; // Used to check if any toast messages were shown
 
     TimeParser time = new TimeParser();
+    DateParser dateParser = new DateParser();
     MainActivity activity = new MainActivity();
     
     @Override
@@ -142,7 +142,15 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
     public Habit createHabit(String hName, RadioButton hType, String hMsg, int hTime, int mTime) {
         // A boolean variable that is true for Good_Habit and false for Bad_Habit
         boolean boolType = hType.getId() == findViewById(R.id.good_habit).getId();
-        return new Habit(hName, boolType, hMsg, hTime, mTime);
+        String startDate = dateParser.getTodaysDate();
+        String endDate ="";
+        try {
+            endDate = dateParser.getEndDate(startDate);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return new Habit(hName, boolType, hMsg, hTime, mTime, startDate, endDate);
     }
 
     // This Function Adds a new Habit to the list of Habits

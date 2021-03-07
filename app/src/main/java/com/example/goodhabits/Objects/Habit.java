@@ -37,8 +37,12 @@ public class Habit implements Serializable {
         return this.msg;
     }
 
-    public int[] getHabitTime() {
-        return new int[]{hour,minute};
+    public int getHour() {
+        return this.hour;
+    }
+
+    public int getMinute() {
+        return this.minute;
     }
 
     public String getStartDate() {
@@ -80,5 +84,9 @@ public class Habit implements Serializable {
 
     public void setDaysCheckedIn(int daysCheckedIn) {
         this.daysCheckedIn = daysCheckedIn;
+    }
+
+    public void increaseCheckIn(){
+        this.daysCheckedIn += 1;
     }
 }

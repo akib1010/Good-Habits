@@ -11,15 +11,12 @@ import android.widget.ListView;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.goodhabits.Objects.Habit;
 import com.example.goodhabits.R;
 
-import java.util.ArrayList;
 
 public class AllHabitsActivity extends AppCompatActivity {
 
     MainActivity activity = new MainActivity();
-    ArrayList<Habit> habitList = activity.habitStorage.getHabitList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,14 +31,14 @@ public class AllHabitsActivity extends AppCompatActivity {
             listView.setAdapter(arrayAdapter);
         }
         catch(Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
 
         // Show a toast message when a row in the list view is clicked
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long id) {
-                intent.putExtra("Habit", habitList.get(i));
+                intent.putExtra("index", i);
                 startActivity(intent);
             }
         });

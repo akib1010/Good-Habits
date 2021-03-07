@@ -20,7 +20,7 @@ public class StorageTest {
     @Test
     public void checkHabitInStorage() {
         HabitStorage storage = new HabitStorage();
-        storage.addToHabitStorage(new Habit("Test Habit", true, "This is a Test Habit", 11, 30));
+        storage.addToHabitStorage(new Habit("Test Habit", true, "This is a Test Habit", 11, 30, "05/03/2021", "10/05/2021"));
         assertEquals(1, storage.getHabitStorageSize());
         assertEquals("Test Habit", storage.getHabitList().get(0).getHabitName());
     }

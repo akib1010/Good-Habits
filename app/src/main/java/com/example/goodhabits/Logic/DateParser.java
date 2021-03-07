@@ -18,7 +18,7 @@ public class DateParser {
 
     }
 
-    public String getStartDate(){
+    public String getTodaysDate(){
         Date startDate = new Date();
         return dateFormat.format(startDate);
     }
@@ -42,6 +42,6 @@ public class DateParser {
 
         long difference = date2.getTime() - date1.getTime();
         float days = (float)(difference / (1000 *60*60*24));
-        return (int)days+1;
+        return (int)days;
     }
 }

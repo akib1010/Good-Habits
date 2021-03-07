@@ -26,4 +26,11 @@
     <string name="total_habits">Total Habits:</string>
     <string name="count">Count</string>
     <string name="dashboard">Dashboard</string>
+    <string name="message">Message</string>
+    <string name="start_date">Start Date</string>
+    <string name="end_date">End Date</string>
+    <string name="days_passed">Days Passed</string>
+    <string name="checkins">Checkins</string>
+    <string name="notification_time">Notification Time</string>
+    <string name="check_in">Check In</string>
 </resources>
