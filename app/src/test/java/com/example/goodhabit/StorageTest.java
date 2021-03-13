@@ -1,9 +1,9 @@
-package com.example.goodhabits;
+package com.example.goodhabit;
 
-import com.example.goodhabits.Objects.Habit;
-import com.example.goodhabits.Objects.Profile;
-import com.example.goodhabits.Persistence.HabitStorage;
-import com.example.goodhabits.Persistence.ProfileStorage;
+import com.example.goodhabit.Objects.Habit;
+import com.example.goodhabit.Objects.Profile;
+import com.example.goodhabit.Persistence.HabitStorage;
+import com.example.goodhabit.Persistence.ProfileStorage;
 
 import org.junit.Test;
 
@@ -20,16 +20,16 @@ public class StorageTest {
     @Test
     public void checkHabitInStorage() {
         HabitStorage storage = new HabitStorage();
-        storage.addToHabitStorage(new Habit("Test Habit", true, "This is a Test Habit", 11, 30));
+        storage.addToHabitStorage(new Habit("Test Habit", true, "This is a Test Habit", 11, 30, "05/03/2021", "10/05/2021"));
         assertEquals(1, storage.getHabitStorageSize());
-        assertEquals("Test Habit", storage.getHabitStorage().get(0).getHabitName());
+        assertEquals("Test Habit", storage.getHabitList().get(0).getHabitName());
     }
 
     @Test
     public void checkEmptyStorage() {
         HabitStorage storage = new HabitStorage();
         try {
-            storage.getAllName();
+            storage.getAllHabitNames();
         }
         catch (Exception e){
             assertEquals("java.lang.Exception: ERROR: HabitStorage is empty", e.toString());

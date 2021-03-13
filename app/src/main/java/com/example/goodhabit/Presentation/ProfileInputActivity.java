@@ -1,4 +1,4 @@
-package com.example.goodhabits.Presentation;
+package com.example.goodhabit.Presentation;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,8 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.goodhabits.Objects.Profile;
-import com.example.goodhabits.R;
+import com.example.goodhabit.Objects.Profile;
+import com.example.goodhabit.R;
 
 
 public class ProfileInputActivity extends AppCompatActivity {

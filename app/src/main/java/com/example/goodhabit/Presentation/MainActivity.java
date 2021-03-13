@@ -1,4 +1,4 @@
-package com.example.goodhabits.Presentation;
+package com.example.goodhabit.Presentation;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,10 +8,10 @@ import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.example.goodhabits.Objects.Habit;
-import com.example.goodhabits.Persistence.HabitStorage;
-import com.example.goodhabits.Persistence.ProfileStorage;
-import com.example.goodhabits.R;
+import com.example.goodhabit.Objects.Habit;
+import com.example.goodhabit.Persistence.HabitStorage;
+import com.example.goodhabit.Persistence.ProfileStorage;
+import com.example.goodhabit.R;
 
 import java.util.Objects;
 
@@ -29,9 +29,16 @@ public class MainActivity extends AppCompatActivity {
         // Fake data to populate the List view
         // More Habits can be added to this List View by going to the Add a Habit Screen and creating a new Habit
         if(habitStorage.getHabitStorageSize() == 0) {
-            habitStorage.addToHabitStorage(new Habit("Quit Smoking", false, "Smoking causes Cancer.", 11, 30));
-            habitStorage.addToHabitStorage(new Habit("Do Yoga", true, "Need to stay fit.", 8, 0));
-            habitStorage.addToHabitStorage(new Habit("Drink Water", true, "Need to hydrate my body.", 10, 30));
+            try {
+                String startDate = "12/01/2021";
+                String endDate = "07/03/2021";
+                habitStorage.addToHabitStorage(new Habit("Quit Smoking", false, "Smoking causes Cancer.", 11, 30, startDate, endDate));
+                habitStorage.addToHabitStorage(new Habit("Do Yoga", true, "Need to stay fit.", 8, 0, startDate, endDate));
+                habitStorage.addToHabitStorage(new Habit("Drink Water", true, "Need to hydrate my body.", 10, 30, startDate, endDate));
+            }
+            catch(Exception e){
+                e.printStackTrace();
+            }
         }
 
         // Updating the Total Habits count

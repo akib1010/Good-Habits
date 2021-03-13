@@ -1,4 +1,4 @@
-package com.example.goodhabits.Presentation;
+package com.example.goodhabit.Presentation;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,10 +18,11 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.example.goodhabits.Logic.TimeParser;
-import com.example.goodhabits.Logic.TimePickerFragment;
-import com.example.goodhabits.Objects.Habit;
-import com.example.goodhabits.R;
+import com.example.goodhabit.Logic.DateParser;
+import com.example.goodhabit.Logic.TimeParser;
+import com.example.goodhabit.Logic.TimePickerFragment;
+import com.example.goodhabit.Objects.Habit;
+import com.example.goodhabit.R;
 
 
 // This Class helps create a new Habit
@@ -36,6 +37,7 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
     private boolean toastFired = false; // Used to check if any toast messages were shown
 
     TimeParser time = new TimeParser();
+    DateParser dateParser = new DateParser();
     MainActivity activity = new MainActivity();
     
     @Override
@@ -119,7 +121,7 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
     @Override
     public void onTimeSet(TimePicker timePicker, int hourOfDay, int minuteOfHour) {
         // Show the time selected by the user in 12 hr format for better understanding
-        TextView textView=(TextView)findViewById(R.id.time_picker_label);
+        TextView textView = (TextView)findViewById(R.id.time_picker_label);
         textView.setText(time.getTime(hourOfDay, minuteOfHour));
 
         // Store the time selected by the user in 24 hr format for ease of coding
@@ -140,7 +142,15 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
     public Habit createHabit(String hName, RadioButton hType, String hMsg, int hTime, int mTime) {
         // A boolean variable that is true for Good_Habit and false for Bad_Habit
         boolean boolType = hType.getId() == findViewById(R.id.good_habit).getId();
-        return new Habit(hName, boolType, hMsg, hTime, mTime);
+        String startDate = dateParser.getTodaysDate();
+        String endDate ="";
+        try {
+            endDate = dateParser.getEndDate(startDate);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return new Habit(hName, boolType, hMsg, hTime, mTime, startDate, endDate);
     }
 
     // This Function Adds a new Habit to the list of Habits
@@ -175,4 +185,5 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
             toastFired = true;
         }
     }
+
 }

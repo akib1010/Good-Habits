@@ -1,11 +1,11 @@
-package com.example.goodhabits.Persistence;
+package com.example.goodhabit.Persistence;
 
-import com.example.goodhabits.Objects.Habit;
+import com.example.goodhabit.Objects.Habit;
 
 import java.util.ArrayList;
 
 // This Class acts as a Storage for all the Habits created
-public class HabitStorage implements HabitStorageManager{
+public class HabitStorage implements HabitStorageInterface {
     // Non-persistence ArrayList to store all the Habit objects
     private static final ArrayList<Habit> habitStorage = new ArrayList<>();
 
@@ -19,12 +19,12 @@ public class HabitStorage implements HabitStorageManager{
     }
 
     // Function to get the full list of Habits
-    public ArrayList<Habit> getHabitStorage(){
+    public ArrayList<Habit> getHabitList(){
         return habitStorage;
     }
 
     // Function to get the names of each Habit in the ArrayList, in the form of a String array
-    public String[] getAllName() throws Exception{
+    public String[] getAllHabitNames() throws Exception{
         if(habitStorage.size() == 0)
             throw new Exception("ERROR: HabitStorage is empty");
         String[] result = new String[habitStorage.size()];
