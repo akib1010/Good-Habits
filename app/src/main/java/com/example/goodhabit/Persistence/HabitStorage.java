@@ -1,11 +1,11 @@
-package com.example.goodhabits.Persistence;
+package com.example.goodhabit.Persistence;
 
-import com.example.goodhabits.Objects.Habit;
+import com.example.goodhabit.Objects.Habit;
 
 import java.util.ArrayList;
 
 // This Class acts as a Storage for all the Habits created
-public class HabitStorage implements HabitStorageManager{
+public class HabitStorage implements HabitStorageInterface {
     // Non-persistence ArrayList to store all the Habit objects
     private static final ArrayList<Habit> habitStorage = new ArrayList<>();
 

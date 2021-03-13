@@ -1,4 +1,4 @@
-package com.example.goodhabits.Presentation;
+package com.example.goodhabit.Presentation;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,10 +8,10 @@ import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.example.goodhabits.Objects.Habit;
-import com.example.goodhabits.Persistence.HabitStorage;
-import com.example.goodhabits.Persistence.ProfileStorage;
-import com.example.goodhabits.R;
+import com.example.goodhabit.Objects.Habit;
+import com.example.goodhabit.Persistence.HabitStorage;
+import com.example.goodhabit.Persistence.ProfileStorage;
+import com.example.goodhabit.R;
 
 import java.util.Objects;
 

@@ -1,4 +1,4 @@
-package com.example.goodhabits.Presentation;
+package com.example.goodhabit.Presentation;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,11 +7,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.example.goodhabits.Objects.Profile;
-import com.example.goodhabits.Persistence.ProfileStorage;
-import com.example.goodhabits.R;
-
-import java.util.ArrayList;
+import com.example.goodhabit.Objects.Profile;
+import com.example.goodhabit.R;
 
 public class ProfileActivity extends AppCompatActivity {
 

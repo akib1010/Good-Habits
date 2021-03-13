@@ -1,11 +1,11 @@
-package com.example.goodhabits.Presentation;
+package com.example.goodhabit.Presentation;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.goodhabits.R;
+import com.example.goodhabit.R;
 
 public class SettingsActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.goodhabits.Presentation;
+package com.example.goodhabit.Presentation;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,10 +10,10 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.example.goodhabits.Logic.DateParser;
-import com.example.goodhabits.Logic.TimeParser;
-import com.example.goodhabits.Objects.Habit;
-import com.example.goodhabits.R;
+import com.example.goodhabit.Logic.DateParser;
+import com.example.goodhabit.Logic.TimeParser;
+import com.example.goodhabit.Objects.Habit;
+import com.example.goodhabit.R;
 
 import java.text.ParseException;
 import java.util.ArrayList;

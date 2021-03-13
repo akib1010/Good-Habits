@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.goodhabits">
+    package="com.example.goodhabit">
 
     <application
         android:allowBackup="true"
@@ -9,13 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GoodHabits">
-        <activity android:name=".Presentation.DetailActivity"></activity>
-        <activity android:name=".Presentation.MainActivity" />
-        <activity android:name=".Presentation.ProfileActivity" />
-        <activity android:name=".Presentation.SettingsActivity" />
-        <activity android:name=".Presentation.AllHabitsActivity" />
-        <activity android:name=".Presentation.AddActivity" />
-        <activity android:name=".Presentation.ProfileInputActivity">
+        <activity android:name="com.example.goodhabit.Presentation.DetailActivity"></activity>
+        <activity android:name="com.example.goodhabit.Presentation.MainActivity" />
+        <activity android:name="com.example.goodhabit.Presentation.ProfileActivity" />
+        <activity android:name="com.example.goodhabit.Presentation.SettingsActivity" />
+        <activity android:name="com.example.goodhabit.Presentation.AllHabitsActivity" />
+        <activity android:name="com.example.goodhabit.Presentation.AddActivity" />
+        <activity android:name="com.example.goodhabit.Presentation.ProfileInputActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

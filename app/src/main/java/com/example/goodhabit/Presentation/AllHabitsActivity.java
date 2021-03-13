@@ -1,4 +1,4 @@
-package com.example.goodhabits.Presentation;
+package com.example.goodhabit.Presentation;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import android.widget.ListView;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.goodhabits.R;
+import com.example.goodhabit.R;
 
 
 public class AllHabitsActivity extends AppCompatActivity {

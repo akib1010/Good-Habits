@@ -1,4 +1,4 @@
-package com.example.goodhabits.Presentation;
+package com.example.goodhabit.Presentation;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,11 +18,11 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.example.goodhabits.Logic.DateParser;
-import com.example.goodhabits.Logic.TimeParser;
-import com.example.goodhabits.Logic.TimePickerFragment;
-import com.example.goodhabits.Objects.Habit;
-import com.example.goodhabits.R;
+import com.example.goodhabit.Logic.DateParser;
+import com.example.goodhabit.Logic.TimeParser;
+import com.example.goodhabit.Logic.TimePickerFragment;
+import com.example.goodhabit.Objects.Habit;
+import com.example.goodhabit.R;
 
 
 // This Class helps create a new Habit

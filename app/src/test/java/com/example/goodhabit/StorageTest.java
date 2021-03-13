@@ -1,9 +1,9 @@
-package com.example.goodhabits;
+package com.example.goodhabit;
 
-import com.example.goodhabits.Objects.Habit;
-import com.example.goodhabits.Objects.Profile;
-import com.example.goodhabits.Persistence.HabitStorage;
-import com.example.goodhabits.Persistence.ProfileStorage;
+import com.example.goodhabit.Objects.Habit;
+import com.example.goodhabit.Objects.Profile;
+import com.example.goodhabit.Persistence.HabitStorage;
+import com.example.goodhabit.Persistence.ProfileStorage;
 
 import org.junit.Test;
 

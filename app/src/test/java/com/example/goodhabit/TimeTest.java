@@ -1,6 +1,6 @@
-package com.example.goodhabits;
+package com.example.goodhabit;
 
-import com.example.goodhabits.Logic.TimeParser;
+import com.example.goodhabit.Logic.TimeParser;
 
 import org.junit.Test;
 

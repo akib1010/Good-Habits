@@ -1,4 +1,4 @@
-package com.example.goodhabits.Objects;
+package com.example.goodhabit.Objects;
 
 // This is a Class for the Profile object of the user
 public class Profile {

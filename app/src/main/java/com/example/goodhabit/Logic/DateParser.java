@@ -1,4 +1,4 @@
-package com.example.goodhabits.Logic;
+package com.example.goodhabit.Logic;
 
 import android.annotation.SuppressLint;
 

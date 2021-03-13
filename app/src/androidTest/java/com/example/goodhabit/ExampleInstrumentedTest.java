@@ -1,4 +1,4 @@
-package com.example.goodhabits;
+package com.example.goodhabit;
 
 import android.content.Context;
 

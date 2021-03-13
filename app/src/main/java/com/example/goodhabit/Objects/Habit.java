@@ -1,4 +1,4 @@
-package com.example.goodhabits.Objects;
+package com.example.goodhabit.Objects;
 
 import java.io.Serializable;
 
@@ -13,7 +13,7 @@ public class Habit implements Serializable {
     private String endDate;
     private int daysCheckedIn;
 
-    public Habit(String name,boolean type,String msg,int hour,int minute, String startDate, String endDate)
+    public Habit(String name, boolean type, String msg, int hour, int minute, String startDate, String endDate)
     {
         this.name = name;
         this.type = type;
