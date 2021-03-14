@@ -5,7 +5,7 @@ import com.example.goodhabit.Objects.Habit;
 import java.util.ArrayList;
 
 // This Class acts as a Storage for all the Habits created
-public class HabitStorage implements HabitStorageInterface {
+public class HabitStorage{
     // Non-persistence ArrayList to store all the Habit objects
     private static final ArrayList<Habit> habitStorage = new ArrayList<>();
 
@@ -14,7 +14,7 @@ public class HabitStorage implements HabitStorageInterface {
     }
 
     // Function to add a Habit to the ArrayList
-    public void addToHabitStorage(Habit habit){
+    public void addHabit(Habit habit){
         habitStorage.add(habit);
     }
 
@@ -34,8 +34,12 @@ public class HabitStorage implements HabitStorageInterface {
         return result;
     }
 
+    public void deleteHabit(int index) {
+        habitStorage.remove(index);
+    }
+
     // Function to get the size of the ArrayList that has all the Habits
-    public int getHabitStorageSize(){
+    public int getHabitListSize(){
         return habitStorage.size();
     }
 

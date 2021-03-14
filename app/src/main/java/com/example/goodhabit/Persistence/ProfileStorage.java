@@ -3,7 +3,7 @@ package com.example.goodhabit.Persistence;
 import com.example.goodhabit.Objects.Profile;
 
 // This Class acts as a storage for the User's profile information
-public class ProfileStorage implements ProfileStorageInterface {
+public class ProfileStorage{
     // Non-persistence ArrayList to store the Habit object
     private static Profile userProfile = null;
 

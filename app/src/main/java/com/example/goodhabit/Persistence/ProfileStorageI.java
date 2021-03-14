@@ -2,9 +2,7 @@ package com.example.goodhabit.Persistence;
 
 import com.example.goodhabit.Objects.Profile;
 
-import java.util.ArrayList;
-
-public interface ProfileStorageInterface {
+public interface ProfileStorageI {
     void addToProfileStorage(Profile profile);
     Profile getProfileStorage();
 }

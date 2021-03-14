@@ -69,6 +69,8 @@ public class DetailActivity extends AppCompatActivity {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
+            if(days >= 66)
+                days = 66;
             daysPassed.setText(String.valueOf(days));
 
             checkins = (TextView) findViewById(R.id.dv_checkins);

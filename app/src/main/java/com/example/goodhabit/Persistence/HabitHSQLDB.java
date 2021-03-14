@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class HabitHSQLDB implements HabitStorageInterface {
+public class HabitHSQLDB implements HabitStorageI {
 
     private ArrayList<Habit> habitList;
     private String path;
@@ -27,21 +27,26 @@ public class HabitHSQLDB implements HabitStorageInterface {
 
     @Override
     public ArrayList<Habit> getHabitList(){
-        return new ArrayList<>(null);
+        return null;
     }
 
     @Override
-    public void addToHabitStorage(Habit habit){
-
+    public boolean addHabit(Habit habit){
+        return true;
     }
 
     @Override
     public String[] getAllHabitNames() throws Exception{
-        return new String[]{"xxx", "hguigh"};
+        return new String[]{"dfvsdfsdf", "dsfsdf"};
     }
 
     @Override
-    public int getHabitStorageSize(){
+    public void deleteHabit(int index){
+
+    }
+
+    @Override
+    public int getHabitListSize(){
         return 0;
     }
 }

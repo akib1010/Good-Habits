@@ -4,9 +4,10 @@ import com.example.goodhabit.Objects.Habit;
 
 import java.util.ArrayList;
 
-public interface HabitStorageInterface {
+public interface HabitStorageI {
     ArrayList<Habit> getHabitList();
-    void addToHabitStorage(Habit habit);
+    boolean addHabit(Habit habit);
     String[] getAllHabitNames() throws Exception;
-    int getHabitStorageSize();
+    void deleteHabit(int index);
+    int getHabitListSize();
 }
