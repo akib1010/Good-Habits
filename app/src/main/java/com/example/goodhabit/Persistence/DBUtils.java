@@ -2,12 +2,8 @@ package com.example.goodhabit.Persistence;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-import android.os.Build;
-
-import androidx.annotation.RequiresApi;
 
 import com.example.goodhabit.Application.Main;
-import com.example.goodhabit.Logic.UserMessage;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -15,7 +11,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class DBUtils {
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void copyDatabaseToDevice(Context context) {
         final String DB_PATH = "db";
 
@@ -30,15 +25,17 @@ public class DBUtils {
                 assetNames[i] = DB_PATH + "/" + assetNames[i];
             }
 
-            copyAssetsToDirectory(assetNames, dataDirectory, context);
+            copyAssetsToDirectory(context, assetNames, dataDirectory);
 
             Main.setDBPathName(dataDirectory.toString() + "/" + Main.getDBPathName());
+
         } catch (final IOException ioe) {
-            UserMessage.warning(context, "Unable to access application data: " + ioe.getMessage());
+            System.out.println("Unable to access application data: " + ioe.getMessage());
         }
+
     }
 
-    public static void copyAssetsToDirectory(String[] assets, File directory, Context context) throws IOException {
+    private static void copyAssetsToDirectory(Context context, String[] assets, File directory) throws  IOException {
         AssetManager assetManager = context.getAssets();
 
         for (String asset : assets) {
@@ -65,4 +62,5 @@ public class DBUtils {
             }
         }
     }
+
 }

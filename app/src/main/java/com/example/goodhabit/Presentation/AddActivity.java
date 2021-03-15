@@ -39,6 +39,8 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
     TimeParser time = new TimeParser();
     DateParser dateParser = new DateParser();
     MainActivity activity = new MainActivity();
+
+    private int id = 3;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,7 +152,9 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
         catch(Exception e){
             e.printStackTrace();
         }
-        return new Habit(hName, boolType, hMsg, hTime, mTime, startDate, endDate);
+        id += 1;
+        System.out.println("ID assigned: "+id);
+        return new Habit(id, hName, boolType, hMsg, hTime, mTime, startDate, endDate, 0);
     }
 
     // This Function Adds a new Habit to the list of Habits

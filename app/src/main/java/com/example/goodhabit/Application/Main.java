@@ -1,20 +1,16 @@
 package com.example.goodhabit.Application;
 
-import android.os.Build;
-import android.util.Log;
-
-import androidx.annotation.RequiresApi;
-
 public class Main {
     private static String dbName="SC";
 
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void setDBPathName(final String name) {
         try {
             Class.forName("org.hsqldb.jdbcDriver").newInstance();
-        }
-        catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
-            Log.e("Setting up DB driver", e.toString());
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
         dbName = name;
@@ -23,4 +19,5 @@ public class Main {
     public static String getDBPathName() {
         return dbName;
     }
+
 }

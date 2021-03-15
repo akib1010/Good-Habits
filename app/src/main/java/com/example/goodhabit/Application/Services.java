@@ -1,6 +1,6 @@
 package com.example.goodhabit.Application;
 
-import com.example.goodhabit.Persistence.HabitHSQLDB;
+import com.example.goodhabit.Persistence.HSQLDB.HabitHSQLDB;
 import com.example.goodhabit.Persistence.HabitStorageI;
 
 public class Services {
@@ -12,4 +12,8 @@ public class Services {
         }
         return habitStorage;
     }
+    public static synchronized void clean() {
+        habitStorage = null;
+    }
+
 }

@@ -1,14 +1,19 @@
 package com.example.goodhabit.Presentation;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.goodhabit.Application.Services;
+import com.example.goodhabit.Logic.HabitManager;
 import com.example.goodhabit.Objects.Habit;
+import com.example.goodhabit.Persistence.DBUtils;
 import com.example.goodhabit.Persistence.HabitStorage;
 import com.example.goodhabit.Persistence.ProfileStorage;
 import com.example.goodhabit.R;
@@ -21,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     HabitStorage habitStorage = new HabitStorage();
     ProfileStorage profileStorage = new ProfileStorage();
 
+    private HabitManager hm;
+
     @SuppressLint("SetTextI18n")
     @Override
     protected void onResume(){
@@ -32,9 +39,9 @@ public class MainActivity extends AppCompatActivity {
             try {
                 String startDate = "13/03/2020";
                 String endDate = "18/08/2021";
-                habitStorage.addHabit(new Habit("Quit Smoking", false, "Smoking causes Cancer.", 11, 30, startDate, endDate));
-                habitStorage.addHabit(new Habit("Do Yoga", true, "Need to stay fit.", 8, 0, startDate, endDate));
-                habitStorage.addHabit(new Habit("Drink Water", true, "Need to hydrate my body.", 10, 30, startDate, endDate));
+                habitStorage.addHabit(new Habit(1,"Quit Smoking", false, "Smoking causes Cancer.", 11, 30, startDate, endDate, 0));
+                habitStorage.addHabit(new Habit(2,"Do Yoga", true, "Need to stay fit.", 8, 0, startDate, endDate, 0));
+                habitStorage.addHabit(new Habit(3,"Drink Water", true, "Need to hydrate my body.", 10, 30, startDate, endDate, 0));
             }
             catch(Exception e){
                 e.printStackTrace();
@@ -46,10 +53,18 @@ public class MainActivity extends AppCompatActivity {
         habitCount.setText(Integer.toString(habitStorage.getHabitListSize()));
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        DBUtils.copyDatabaseToDevice(this);
+        hm = new HabitManager(Services.getHabitStorage());
+        Habit habit = new Habit(24, "Code early in the morning", true, "Coding early morning increases productivity.", 6, 30, "01/03/2021", "05, 05,2021", 10);
+        System.out.println(hm.addHabit(habit));
+
 
         // To remove the default Title Bar of this Activity
         try {

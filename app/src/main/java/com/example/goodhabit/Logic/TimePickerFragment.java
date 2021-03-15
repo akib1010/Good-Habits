@@ -20,6 +20,7 @@ public class TimePickerFragment extends DialogFragment {
         Calendar c = Calendar.getInstance();    // Calendar is used to take the current time
         int hour = c.get(Calendar.HOUR_OF_DAY);    // Current Hour
         int minute = c.get(Calendar.MINUTE);    // Current Minute
+
         // Returns the time selected by the user, shows current time as initial time
         return new TimePickerDialog(getActivity(), (TimePickerDialog.OnTimeSetListener) getActivity(), hour,minute, DateFormat.is24HourFormat(getActivity()));
     }

@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 // This is a Class for the Habit object
 public class Habit implements Serializable {
+    private int id;
     private String name; // Name of Habit
     private boolean type; // Type of Habit, If true then it is a "Good Habit" else it is a "Bad Habit"
     private String msg; // A message that the user writes inorder to engage in an activity
@@ -13,8 +14,9 @@ public class Habit implements Serializable {
     private String endDate;
     private int daysCheckedIn;
 
-    public Habit(String name, boolean type, String msg, int hour, int minute, String startDate, String endDate)
+    public Habit(int id, String name, boolean type, String msg, int hour, int minute, String startDate, String endDate, int daysCheckedIn)
     {
+        this.id = id;
         this.name = name;
         this.type = type;
         this.msg = msg;
@@ -22,8 +24,10 @@ public class Habit implements Serializable {
         this.minute = minute;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.daysCheckedIn = 0;
+        this.daysCheckedIn = daysCheckedIn;
     }
+
+    public int getId() { return this.id; }
 
     public String getHabitName(){
         return this.name;
@@ -46,15 +50,15 @@ public class Habit implements Serializable {
     }
 
     public String getStartDate() {
-        return startDate;
+        return this.startDate;
     }
 
     public String getEndDate() {
-        return endDate;
+        return this.endDate;
     }
 
     public int getDaysCheckedIn() {
-        return daysCheckedIn;
+        return this.daysCheckedIn;
     }
 
     public void setHabitName(String name) {
@@ -80,10 +84,6 @@ public class Habit implements Serializable {
 
     public void setEndDate(String endDate) {
         this.endDate = endDate;
-    }
-
-    public void setDaysCheckedIn(int daysCheckedIn) {
-        this.daysCheckedIn = daysCheckedIn;
     }
 
     public void increaseCheckIn(){

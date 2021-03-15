@@ -7,21 +7,21 @@ import java.util.ArrayList;
 
 public class HabitManager {
 
-    private static HabitStorageI habitStorage;
+    private HabitStorageI habitStorage;
 
     public HabitManager(HabitStorageI db){
         habitStorage = db;
     }
 
-    public static ArrayList<Habit> getHabitList(){
+    public ArrayList<Habit> getHabitList(){
         return habitStorage.getHabitList();
     }
 
-    public static boolean addToHabit(Habit habit){
+    public boolean addHabit(Habit habit){
         return habitStorage.addHabit(habit);
     }
 
-    public static String[] getAllHabitNames() throws Exception{
+    public String[] getAllHabitNames() throws Exception{
         ArrayList<Habit> habitList = habitStorage.getHabitList();
         if(habitList.size() == 0)
             throw new Exception("ERROR: HabitStorage is empty");
@@ -32,11 +32,11 @@ public class HabitManager {
         return result;
     }
 
-    public static void deleteHabit(int index){
-        habitStorage.deleteHabit(index);
+    public void deleteHabit(Habit habit){
+        habitStorage.deleteHabit(habit);
     }
 
-    public static int getHabitListSize(){
+    public int getHabitListSize(){
         return habitStorage.getHabitList().size();
     }
 }
