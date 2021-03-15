@@ -153,7 +153,6 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
             e.printStackTrace();
         }
         id += 1;
-        System.out.println("ID assigned: "+id);
         return new Habit(id, hName, boolType, hMsg, hTime, mTime, startDate, endDate, 0);
     }
 
