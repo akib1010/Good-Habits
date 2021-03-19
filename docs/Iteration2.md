@@ -1,9 +1,10 @@
 # Iteration 2 
 ---
 ### Paying off technical debt 
-* 
+* We used instances of storage class in iteration 1 but we later changed them into interfaces which are implemented by multiple classes.  
+[HabitStorageI and ProfileStorageI](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group-12/good-habits-a02-12/-/tree/master/app/src/main/java/comp3350/goodhabits/Persistence)  
 
-* 
+* We didn't have enough tests coverage in iteration 1 but we increased that in iteration 2. This helped us to code more defensively.
 
 
 
