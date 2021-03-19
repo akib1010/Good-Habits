@@ -1,7 +1,6 @@
 package com.example.goodhabit;
 
 import com.example.goodhabit.Logic.DateParser;
-import com.example.goodhabit.Logic.TimeParser;
 
 import org.junit.Before;
 import org.junit.Test;

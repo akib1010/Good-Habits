@@ -10,7 +10,7 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        StorageTest.class,
+        StubTest.class,
         TimeTest.class,
         DateTest.class
 })
