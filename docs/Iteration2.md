@@ -21,9 +21,8 @@ We are using Singleton design pattern in ```HabitSQLite``` and ```ProfileSQLite`
 
 
 ### Iteration 1 Feedback fixes 
-* Removed ```com.example``` portion
-    * [Refactor Link]()
-* Fixed ```If/Else``` statements in ```AddActivity.java``` 
-    * [Fixed Link]()
-* Removed duplicate ```Toast.makeText()``` code 
-    * [Fixed code Link]()
+* Removed ```com.example``` portion  
+ [Refactor Link](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group-12/good-habits-a02-12/-/tree/master/app/src/main)  
+
+
+* We pushed rest of the fixes in Iteration 3 as explained in Retrospective.
