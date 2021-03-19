@@ -1,0 +1,26 @@
+# Iteration 2 
+---
+### Paying off technical debt 
+
+
+
+
+### SOLID
+Violation of Dependency Inversion Principle as ```HomeFragment.java``` is dependent on ```PetFakeDatabse.java```. Recommended use of Dependency Injection whichi is define the ```PetFakeDatabase.java```
+* [SOLID Violation Issue](https://code.cs.umanitoba.ca/3350-winter-2021-a03/minipets-comp3350-a03-group12/-/issues/32)
+* [Commit](https://code.cs.umanitoba.ca/3350-winter-2021-a03/minipets-comp3350-a03-group12/-/commit/d0c00824a2c49889075ed91133d70aa2c58ffd61)
+### Retrospective 
+* [Retrospective]()
+
+### Design Pattern
+**Singleton**
+We are using Singleton design pattern in ```HabitStorageManager``` . As we create a single instance of ```HabitStorageManager``` for global access where it behaves as our database driver class and stores data about ```Habit``` and ```Profile``` objects. Positive side of this design pattren is that we can get data anytime we want from this Singleton class.
+[Link to Habit Storage Manager]()
+
+### Iteration 1 Feedback fixes 
+* Removed ```com.example``` portion
+    * [Refactor Link]()
+* Fixed ```If/Else``` statements in ```AddActivity.java``` 
+    * [Fixed Link]()
+* Removed duplicate ```Toast.makeText()``` code 
+    * [Fixed code Link]()
