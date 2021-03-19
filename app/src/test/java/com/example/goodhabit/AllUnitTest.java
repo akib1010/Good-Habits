@@ -3,6 +3,10 @@ package com.example.goodhabit;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
+import java.sql.Time;
+
+import comp3350.goodhabits.Logic.ProfileManager;
+
 /**
  * Example local unit test, which will execute on the development machine (host).
  *
@@ -10,9 +14,13 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        StubTest.class,
-        TimeTest.class,
-        DateTest.class
+        DateTest.class,
+        HabitManagerTest.class,
+        HabitSqlIT.class,
+        HabitTest.class,
+        ProfileManagerTest.class,
+        ProfileTest.class,
+        TimeTest.class
 })
 public class AllUnitTest {
 

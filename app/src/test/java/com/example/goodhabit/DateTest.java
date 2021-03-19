@@ -1,6 +1,6 @@
 package com.example.goodhabit;
 
-import com.example.goodhabit.Logic.DateParser;
+import comp3350.goodhabits.Logic.DateParser;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -34,7 +34,7 @@ public class DateTest {
     public void checkDaysPassed(){
         try {
             int days = dateParser.getDaysPassed(startDate, currDate);
-            assertEquals("12", String.valueOf(days));
+            assertEquals("11", String.valueOf(days));
         }
         catch(Exception e){
             e.printStackTrace();

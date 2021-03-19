@@ -7,10 +7,6 @@ GoodHabits app is based on 3 tier architechture
 
 ### Visualization 
 ---
-#### Iteration 2
-![Architecture](/docs/Architecture2.png)
----
-#### Iteration 1
 ![Architecture](/docs/Architecture.png)
 
 
@@ -44,19 +40,11 @@ ProfileInputActivity
 SettingsActivity
     Helps user to manage the settings related to App.
 ```
-```
-DetailActivity
-    Displays the detail description about the habit.
-```
  
 
 
 #### **Logic Layer**
-Logic layer consists of Time picker files and Object Manager files 
-```
-DateParser
-    Calculates dates passed after a Habit object is created.
-```
+Logic layer consists of Time picker file
 ```
 TimeParser
     Helps to display the time in 12-hour format.
@@ -65,45 +53,29 @@ TimeParser
 TimePickerFragment
     Widget for picking the time.
 ```
-```
-HabitManager
-    Links presentation Habit object with persistence storage.
-```
-```
-ProfileManager
-    Links presentation Profile object with persistence storage.
-```
-
 
 ### **Persistence Layer**
 We have database interface and database implementation in Persistence Layer
 
-**Database Interface**
+**Database Interface** 
+```
+HabitStorageManager
+    Interface for HabitStorage.
+```
+```
+ProfileStorageManager
+    Interface for ProfileStorage.
+```
+
+
+**Database Implementation**
 ```
 HabitStorage
-    Storage interface Habit objects.
+    Storage for all the Habit objects.
 ```
 ```
 ProfileStorage
-    Storage interface the Profile object.
-```
-**Non-persistent Storage**
-```
-Stub/HabitStorage 
-    Handles non-persistent storage of Habit objects.
-```
-```
-Stub/ProfileStorage
-    Handles non-persistent storage of Profile objects.
-```
-**Persistent Storage**
-```
-HabitSQLite 
-    Handles persistent storage of Habit objects.
-```
-```
-ProfileSQLite 
-    Handles persistent storage of Profile objects.
+    Storage for the Profile object.
 ```
 
 

@@ -49,6 +49,16 @@ public class HabitStorage implements HabitStorageI {
         return result;
     }
 
+    public String[] getAllHabitNames() throws Exception{
+        if(habitStorage.size() == 0)
+            throw new Exception("ERROR: HabitStorage is empty");
+        String[] result = new String[habitStorage.size()];
+        for(int i=0; i<habitStorage.size(); i++){
+            result[i] = habitStorage.get(i).getHabitName();
+        }
+        return result;
+    }
+
     public void makeListEmpty(){
         habitStorage.clear();
     }
