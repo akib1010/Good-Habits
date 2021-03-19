@@ -39,5 +39,6 @@ Good Habits is a habit-tracking application that can be used to develop good hab
 
 ### Tests
 ---
-* [Unit Tests](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group-12/good-habits-a02-12/-/tree/master/app/src/test/java/com/example/goodhabits)
+* [Tests](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group-12/good-habits-a02-12/-/blob/master/app/src/test/java/com/example/goodhabit/AllUnitTest.java)  
+
 
