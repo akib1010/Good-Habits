@@ -1,7 +1,9 @@
 # Iteration 2 
 ---
 ### Paying off technical debt 
+* 
 
+* 
 
 
 
