@@ -30,13 +30,12 @@ public class DetailActivity extends AppCompatActivity {
     ProgressBar progressBar;
     Button checkInButton;
 
-    private final int DCI = 66;
+    private final int DCI = 66; // Days Checked In
     Habit habit;
     DateParser dateParser = new DateParser();
     TimeParser timeParser = new TimeParser();
     ArrayList<Habit> habitList = HabitManager.getHabitList();
-
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
