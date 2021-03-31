@@ -68,15 +68,11 @@ public class ProfileInputActivity extends AppCompatActivity {
         String email = profileEmail.getText().toString();
 
         // Fire a toast message if name field is empty
-        if(name.equals("")){
-            Toast.makeText(this, "Name is missing!", Toast.LENGTH_SHORT).show();
+        if(name.equals("") || email.equals("")){
+            Toast.makeText(this, "Both Name and Email are required!", Toast.LENGTH_SHORT).show();
             pass = false;
         }
-        // Fire a toast message if email field is empty
-        if(email.equals("") && pass){
-            Toast.makeText(this, "Email is missing!", Toast.LENGTH_SHORT).show();
-            pass = false;
-        }
+
         // If all fields are filled, then store the Profile and go to Main Screen
         if(pass){
             Profile profile = new Profile(name, email);

@@ -24,6 +24,19 @@ public class HabitStorage implements HabitStorageI {
          return habitStorage.add(habit);
     }
 
+    public boolean updateHabit(Habit habit) {
+        boolean result = false;
+        for(int i=0; i<habitStorage.size(); i++){
+            if(habitStorage.get(i).getId() == habit.getId()){
+                habitStorage.remove(i);
+                habitStorage.add(i, habit);
+                result = true;
+                break;
+            }
+        }
+        return result;
+    }
+
     public boolean deleteHabit(Habit habit) {
         boolean result = false;
         int id = habit.getId();

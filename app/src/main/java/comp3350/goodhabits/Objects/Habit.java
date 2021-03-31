@@ -4,14 +4,14 @@ import java.io.Serializable;
 
 // This is a Class for the Habit object
 public class Habit implements Serializable {
-    private int id;
-    private String name; // Name of Habit
-    private boolean type; // Type of Habit, If true then it is a "Good Habit" else it is a "Bad Habit"
-    private String msg; // A message that the user writes inorder to engage in an activity
+    private final int id;
+    private final String name; // Name of Habit
+    private final boolean type; // Type of Habit, If true then it is a "Good Habit" else it is a "Bad Habit"
+    private final String msg; // A message that the user writes inorder to engage in an activity
     private int hour; // Used to handle the hour of the day for the Habit
     private int minute; // Used to handle the minute of the hour for the Habit
-    private String startDate;
-    private String endDate;
+    private final String startDate;
+    private final String endDate;
     private int daysCheckedIn;
 
     public Habit(int id, String name, boolean type, String msg, int hour, int minute, String startDate, String endDate, int daysCheckedIn)
@@ -57,33 +57,14 @@ public class Habit implements Serializable {
         return this.endDate;
     }
 
-    public int getDaysCheckedIn() {
-        return this.daysCheckedIn;
-    }
+    public int getDaysCheckedIn() { return this.daysCheckedIn; }
 
-    public void setHabitName(String name) {
-        this.name = name;
-    }
-
-    public void setHabitType(boolean type) {
-        this.type = type;
-    }
-
-    public void setHabitMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public void setHabitTime(int hour, int minute) {
+    public void setHour(int hour) {
         this.hour = hour;
+    }
+
+    public void setTime(int minute){
         this.minute = minute;
-    }
-
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
-    }
-
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
     }
 
     public void increaseCheckIn(){
