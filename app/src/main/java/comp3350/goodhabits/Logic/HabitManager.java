@@ -1,11 +1,16 @@
 package comp3350.goodhabits.Logic;
 
+import android.app.AlarmManager;
+import android.content.Context;
+
+
 import comp3350.goodhabits.Objects.Habit;
 import comp3350.goodhabits.Persistence.HabitStorageI;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
-public class HabitManager {
+public class HabitManager{
 
     private static HabitStorageI habitStorage;
 
@@ -47,6 +52,10 @@ public class HabitManager {
     public static void deleteHabitByIndex(int index){
         habitStorage.deleteHabitByIndex(index);
     }
+    public static Habit getHabitByIndex(int index)
+    {
+        return getHabitList().get(index);
+    }
 
     public static int getID(){
         int id = 0;
@@ -60,4 +69,5 @@ public class HabitManager {
         }
         return id;
     }
+
 }

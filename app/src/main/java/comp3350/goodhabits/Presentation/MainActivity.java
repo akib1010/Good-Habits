@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import comp3350.goodhabits.Application.App;
 import comp3350.goodhabits.Logic.HabitManager;
+import comp3350.goodhabits.Logic.Notifier;
+import comp3350.goodhabits.Logic.QuoteManager;
 import comp3350.goodhabits.Objects.Habit;
 import comp3350.goodhabits.Persistence.SQLite.HabitSQLite;
 import comp3350.goodhabits.R;
@@ -20,6 +22,9 @@ import java.util.Objects;
 
 
 public class MainActivity extends AppCompatActivity {
+
+
+
 
     @SuppressLint("SetTextI18n")
     @Override
