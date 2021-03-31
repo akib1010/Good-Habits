@@ -70,12 +70,46 @@ public class HabitSQLite extends SQLiteOpenHelper implements HabitStorageI {
             cv.put("daysCheckedIn", habit.getDaysCheckedIn());
             num = db.insert("Habits", null, cv);
             habitList.add(habit);
+            cv.clear();
             db.close();
         }
         catch(SQLException e){
             e.printStackTrace();
         }
         return num != -1;
+    }
+
+    public boolean updateHabit(Habit habit) throws SQLException{
+        long num = 0;
+        int id = habit.getId();
+        try{
+            SQLiteDatabase db = this.getWritableDatabase();
+            ContentValues cv = new ContentValues();
+            cv.put("id", habit.getId());
+            cv.put("name", habit.getHabitName());
+            int type = habit.getHabitType() ? 1 : 0;
+            cv.put("type", type);
+            cv.put("msg", habit.getHabitMsg());
+            cv.put("hour", habit.getHour());
+            cv.put("minute", habit.getMinute());
+            cv.put("startDate", habit.getStartDate());
+            cv.put("endDate", habit.getEndDate());
+            cv.put("daysCheckedIn", habit.getDaysCheckedIn());
+            num = db.update("Habits", cv, "id=?", new String[]{String.valueOf(id)});
+            for(int i=0; i<habitList.size(); i++){
+                if(habitList.get(i).getId() == habit.getId()){
+                    habitList.remove(i);
+                    habitList.add(i, habit);
+                    break;
+                }
+            }
+            cv.clear();
+            db.close();
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+        return num != 0;
     }
 
     public boolean deleteHabit(Habit habit) throws SQLException {

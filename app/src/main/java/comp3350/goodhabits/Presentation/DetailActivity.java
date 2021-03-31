@@ -30,7 +30,7 @@ public class DetailActivity extends AppCompatActivity {
     ProgressBar progressBar;
     Button checkInButton;
 
-    int index;
+    private final int DCI = 66;
     Habit habit;
     DateParser dateParser = new DateParser();
     TimeParser timeParser = new TimeParser();
@@ -43,7 +43,7 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
 
         if(getIntent().getExtras() != null){
-            index = (int) getIntent().getSerializableExtra("index");
+            int index = (int) getIntent().getSerializableExtra("index");
             habit = habitList.get(index);
 
             name = (TextView) findViewById(R.id.dv_name);
@@ -69,8 +69,8 @@ public class DetailActivity extends AppCompatActivity {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            if(days >= 66)
-                days = 66;
+            if(days >= DCI)
+                days = DCI;
             daysPassed.setText(String.valueOf(days));
 
             checkins = (TextView) findViewById(R.id.dv_checkins);
@@ -110,6 +110,7 @@ public class DetailActivity extends AppCompatActivity {
     public void increaseCheckIn(){
         if (habit.getDaysCheckedIn() < 66){
             habit.increaseCheckIn();
+            HabitManager.updateHabit(habit);
             checkins.setText(String.valueOf(habit.getDaysCheckedIn()));
             progressBar.setProgress(habit.getDaysCheckedIn());
         }

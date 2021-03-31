@@ -21,6 +21,10 @@ public class HabitManager {
         return habitStorage.addHabit(habit);
     }
 
+    public static boolean updateHabit(Habit habit){
+        return habitStorage.updateHabit(habit);
+    }
+
     public static String[] getAllHabitNames() throws Exception{
         ArrayList<Habit> habitList = habitStorage.getHabitList();
         if(habitList.size() == 0)

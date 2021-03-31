@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public interface HabitStorageI {
     ArrayList<Habit> getHabitList();
     boolean addHabit(Habit habit);
+    boolean updateHabit(Habit habit);
     boolean deleteHabit(Habit habit);
     void makeListEmpty();
     boolean deleteHabitByIndex(int index);
