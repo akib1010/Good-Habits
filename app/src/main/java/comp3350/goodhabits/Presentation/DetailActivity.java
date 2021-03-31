@@ -4,6 +4,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
+import android.annotation.SuppressLint;
 import android.app.TimePickerDialog;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -42,6 +43,7 @@ public class DetailActivity extends AppCompatActivity implements TimePickerDialo
     TimeParser timeParser = new TimeParser();
     ArrayList<Habit> habitList = HabitManager.getHabitList();
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,9 +75,12 @@ public class DetailActivity extends AppCompatActivity implements TimePickerDialo
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            if(days >= DCI)
-                days = DCI;
-            daysPassed.setText(String.valueOf(days));
+            if(days >= DCI){
+                daysPassed.setText(DCI+"+");
+            }
+            else{
+                daysPassed.setText(String.valueOf(days));
+            }
 
             checkins = (TextView) findViewById(R.id.dv_checkins);
             checkins.setText(String.valueOf(habit.getDaysCheckedIn()));
