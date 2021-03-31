@@ -2,24 +2,29 @@ package comp3350.goodhabits.Presentation;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
+import android.app.TimePickerDialog;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import comp3350.goodhabits.Logic.DateParser;
 import comp3350.goodhabits.Logic.HabitManager;
 import comp3350.goodhabits.Logic.TimeParser;
+import comp3350.goodhabits.Logic.TimePickerFragment;
 import comp3350.goodhabits.Objects.Habit;
 import comp3350.goodhabits.R;
 
 import java.text.ParseException;
 import java.util.ArrayList;
 
-public class DetailActivity extends AppCompatActivity {
+public class DetailActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener{
     TextView name;
     TextView message;
     TextView notificationTime;
@@ -27,6 +32,7 @@ public class DetailActivity extends AppCompatActivity {
     TextView endDate;
     TextView daysPassed;
     TextView checkins;
+    Button changeTime;
     ProgressBar progressBar;
     Button checkInButton;
 
@@ -35,7 +41,7 @@ public class DetailActivity extends AppCompatActivity {
     DateParser dateParser = new DateParser();
     TimeParser timeParser = new TimeParser();
     ArrayList<Habit> habitList = HabitManager.getHabitList();
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,9 +57,8 @@ public class DetailActivity extends AppCompatActivity {
             message = (TextView) findViewById(R.id.dv_message);
             message.setText(habit.getHabitMsg());
 
-            notificationTime = (TextView) findViewById(R.id.dv_notification_time);
-            String time = timeParser.getTime(habit.getHour(), habit.getMinute());
-            notificationTime.setText(time);
+            notificationTime = (TextView) findViewById(R.id.dv_notification_time);;
+            notificationTime.setText(timeParser.getTime(habit.getHour(), habit.getMinute()));
 
             startDate = (TextView) findViewById(R.id.dv_start_date);
             startDate.setText(habit.getStartDate());
@@ -74,6 +79,15 @@ public class DetailActivity extends AppCompatActivity {
 
             checkins = (TextView) findViewById(R.id.dv_checkins);
             checkins.setText(String.valueOf(habit.getDaysCheckedIn()));
+
+            changeTime = (Button) findViewById(R.id.dv_change_time_button);
+            changeTime.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    DialogFragment timePicker = new TimePickerFragment();
+                    timePicker.show(getSupportFragmentManager(),"Time Picker");
+                }
+            });
 
             progressBar = (ProgressBar)findViewById(R.id.dv_progress_bar);
             progressBar.getProgressDrawable().setColorFilter(Color.parseColor("#fbc263"), android.graphics.PorterDuff.Mode.SRC_IN);
@@ -113,5 +127,13 @@ public class DetailActivity extends AppCompatActivity {
             checkins.setText(String.valueOf(habit.getDaysCheckedIn()));
             progressBar.setProgress(habit.getDaysCheckedIn());
         }
+    }
+
+    @Override
+    public void onTimeSet(TimePicker view, int hour, int minute) {
+        habit.setHour(hour);
+        habit.setMinute(minute);
+        HabitManager.updateHabit(habit);
+        notificationTime.setText(timeParser.getTime(habit.getHour(), habit.getMinute()));
     }
 }

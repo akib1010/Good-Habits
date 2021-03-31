@@ -75,7 +75,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginEnd="10dp"
-                    android:layout_marginRight="10dp"
                     android:onClick="selectedButton"
                     android:text="@string/good_habit"
                     android:textSize="18sp"

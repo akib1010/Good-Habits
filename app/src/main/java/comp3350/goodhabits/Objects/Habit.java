@@ -63,7 +63,7 @@ public class Habit implements Serializable {
         this.hour = hour;
     }
 
-    public void setTime(int minute){
+    public void setMinute(int minute){
         this.minute = minute;
     }
 

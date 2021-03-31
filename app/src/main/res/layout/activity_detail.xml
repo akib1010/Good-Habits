@@ -119,12 +119,25 @@
             android:text="@string/checkins"
             android:textColor="#000000" />
 
+        <Button
+            android:id="@+id/dv_change_time_button"
+            android:text="@string/change_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            app:backgroundTint="#FFFFFF"
+            app:iconTint="#FFFFFF"
+            app:strokeColor="#009688"
+            app:strokeWidth="2dp" />
+
         <ProgressBar
             android:id="@+id/dv_progress_bar"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_weight="20"
             android:max="66"
             android:scaleY="3" />
@@ -156,11 +169,7 @@
             android:id="@+id/dv_check_in_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
             android:text="@string/check_in" />
     </LinearLayout>
 
