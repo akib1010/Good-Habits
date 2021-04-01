@@ -38,6 +38,7 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
     private String msg;
     private int hour = -1; // Initialized to -1
     private int minute = -1; // Initialized to -1
+    Notifier notifier=new Notifier(AddActivity.this);
     //private boolean toastFired = false; // Used to check if any toast messages were shown
 
 
@@ -110,7 +111,6 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
                     addHabit(newHabit); // Add the Habit to the list of Habits
                     startActivity(new Intent(AddActivity.this, MainActivity.class)); // Go to the main screen
                 //Set a notification for the habit
-                    Notifier notifier=new Notifier(AddActivity.this);
                     notifier.setHabitNotification(newHabit);
                 }
             }

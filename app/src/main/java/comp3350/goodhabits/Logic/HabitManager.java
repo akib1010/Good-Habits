@@ -26,6 +26,20 @@ public class HabitManager{
         return habitStorage.addHabit(habit);
     }
 
+    public static boolean checkHabit(int id)
+    {
+        boolean result = false;
+        ArrayList<Habit> list = habitStorage.getHabitList();
+        for(int i=0 ; i<list.size() ; i++)
+        {
+            if(list.get(i).getId()==id && !result)
+            {
+                result=true;
+            }
+        }
+        return result;
+    }
+
     public static String[] getAllHabitNames() throws Exception{
         ArrayList<Habit> habitList = habitStorage.getHabitList();
         if(habitList.size() == 0)

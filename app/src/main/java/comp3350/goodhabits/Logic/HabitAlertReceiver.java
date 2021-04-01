@@ -18,8 +18,15 @@ public class HabitAlertReceiver extends BroadcastReceiver {
         String title=intent.getStringExtra(habit_Name);
         String content=intent.getStringExtra(habit_Msg);
         int id=intent.getIntExtra(habit_Id,0);
-        NotificationCompat.Builder nb=alarm.createHabitNotification(title,content);
-        alarm.getManager().notify(id,nb.build());
-
+        if(HabitManager.checkHabit(id))
+        {
+            NotificationCompat.Builder nb=alarm.createHabitNotification(title,content);
+            alarm.getManager().notify(id,nb.build());
+        }
+        else
+        {
+            Notifier nt= new Notifier(context);
+            nt.cancelAlarm(context,id);
+        }
     }
 }

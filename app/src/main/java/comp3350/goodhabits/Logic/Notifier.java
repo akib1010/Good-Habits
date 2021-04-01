@@ -35,11 +35,20 @@ public class Notifier {
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,c.getTimeInMillis(),AlarmManager.INTERVAL_DAY,pendingIntent);
     }
 
-    public void cancelAlarm(Habit habit)
+//    public void cancelAlarm(Habit habit)
+//    {
+//        AlarmManager alarmManager=(AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
+//        Intent intent=new Intent(context, HabitAlertReceiver.class);
+//        PendingIntent pendingIntent=PendingIntent.getBroadcast(context,habit.getId(),intent,0);
+//        alarmManager.cancel(pendingIntent);
+//        pendingIntent.cancel();
+//    }
+
+    public void cancelAlarm(Context c,int id)
     {
-        AlarmManager alarmManager=(AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
-        Intent intent=new Intent(context, HabitAlertReceiver.class);
-        PendingIntent pendingIntent=PendingIntent.getBroadcast(context,habit.getId(),intent,0);
+        AlarmManager alarmManager=(AlarmManager)c.getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(c,HabitAlertReceiver.class);
+        PendingIntent pendingIntent=PendingIntent.getBroadcast(c,id,intent,0);
         alarmManager.cancel(pendingIntent);
         pendingIntent.cancel();
     }
