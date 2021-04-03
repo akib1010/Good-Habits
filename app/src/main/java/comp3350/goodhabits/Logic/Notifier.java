@@ -14,36 +14,31 @@ public class Notifier {
     private final String HABIT_NAME="Habit Name";
     private final String HABIT_MSG="Habit Msg";
     private final String HABIT_ID="Habit ID";
-    private final String QUOTE_NAME="Quote of the day";
-    private final int QUOTE_ID=99;
     Context context;
 
+    //Constructor
     public Notifier(Context c)
     {
         context=c;
     }
 
+    //This method sets up a repeating notification for a habit
     public void setHabitNotification(Habit habit)
     {
+        //Calendar instance used to set the time
         Calendar c=setTime(habit.getHour(),habit.getMinute());
         AlarmManager alarmManager=(AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        //Intent is created so that information about the habit can be sent to the broadcast receiver
         Intent intent = new Intent(context, HabitAlertReceiver.class);
         intent.putExtra(HABIT_NAME,habit.getHabitName());
         intent.putExtra(HABIT_MSG,habit.getHabitMsg());
         intent.putExtra(HABIT_ID,habit.getId());
         PendingIntent pendingIntent=PendingIntent.getBroadcast(context,habit.getId(),intent,0);
+        //Set a repeating alarm
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,c.getTimeInMillis(),AlarmManager.INTERVAL_DAY,pendingIntent);
     }
 
-//    public void cancelAlarm(Habit habit)
-//    {
-//        AlarmManager alarmManager=(AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
-//        Intent intent=new Intent(context, HabitAlertReceiver.class);
-//        PendingIntent pendingIntent=PendingIntent.getBroadcast(context,habit.getId(),intent,0);
-//        alarmManager.cancel(pendingIntent);
-//        pendingIntent.cancel();
-//    }
-
+    //This method cancels the notification set for a particular habit
     public void cancelAlarm(Context c,int id)
     {
         AlarmManager alarmManager=(AlarmManager)c.getSystemService(Context.ALARM_SERVICE);
@@ -53,16 +48,6 @@ public class Notifier {
         pendingIntent.cancel();
     }
 
-    public void setQuoteNotification(String quote)
-    {
-        //Calendar c = setTime(2,40);
-        Calendar c=Calendar.getInstance();
-        AlarmManager alarmManager=(AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(context,QuoteAlertReceiver.class);
-        intent.putExtra(QUOTE_NAME,quote);
-        PendingIntent pendingIntent=PendingIntent.getBroadcast(context,QUOTE_ID,intent,0);
-        alarmManager.setExact(AlarmManager.RTC_WAKEUP,c.getTimeInMillis(),pendingIntent);
-    }
 
     //This method sets the time during which the notification will be active
     public Calendar setTime(int hour,int min)

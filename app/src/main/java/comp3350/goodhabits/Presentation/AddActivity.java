@@ -38,9 +38,7 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
     private String msg;
     private int hour = -1; // Initialized to -1
     private int minute = -1; // Initialized to -1
-    Notifier notifier=new Notifier(AddActivity.this);
-    //private boolean toastFired = false; // Used to check if any toast messages were shown
-
+    private Notifier notifier=new Notifier(AddActivity.this);
 
     TimeParser time = new TimeParser();
     DateParser dateParser = new DateParser();

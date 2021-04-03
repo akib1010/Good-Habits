@@ -24,7 +24,6 @@ public class AllHabitsActivity extends AppCompatActivity {
 
     private ArrayAdapter <String>  arrayAdapter;
     private ListView listView;
-    AddActivity activity = new AddActivity();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,13 +61,7 @@ public class AllHabitsActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
 
-                                //Cancel the notification for the habit that is to be deleted
-//                                Habit delHabit=HabitManager.getHabitByIndex(position);
-//                                Notifier notifier=new Notifier(activity);
-//                                notifier.cancelAlarm(delHabit);
-                                //remove item from habitStorage
                                 HabitManager.deleteHabitByIndex(position);
-
 
                                 //refresh detail page
                                 arrayAdapter.notifyDataSetChanged();

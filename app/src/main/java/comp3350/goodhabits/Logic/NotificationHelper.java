@@ -20,19 +20,14 @@ import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 
 public class NotificationHelper extends ContextWrapper{
-    //Id of the notification channels
+    //Id of the notification channel
     public final String habitChannelID= "HabitChannel";
-    public final String quoteChannelID= "QuoteChannel";
 
-    //Name of the notification channels
+    //Name of the notification channel
     public final String habitChannelName="Habit Notification";
-    public final String quoteChannelName="Motivational Quotes";
-
-    //
 
     //A Notifier Variable used to handle the notifications
     public NotificationManager nManager;
-
 
     //Constructor
     public NotificationHelper(Context context)
@@ -41,7 +36,7 @@ public class NotificationHelper extends ContextWrapper{
         //Check android version to determine if channels need to be created
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
         {
-            createNotificationChannels();
+            createNotificationChannel();
         }
 
     }
@@ -58,9 +53,9 @@ public class NotificationHelper extends ContextWrapper{
         return nManager;
     }
 
-    //This method creates the notification channels required for android version greater than equal "oreo"
+    //This method creates a notification channel required for android version greater than equal "oreo"
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void createNotificationChannels()
+    public void createNotificationChannel()
     {
         //Create Notification channel for Habit and add features
         NotificationChannel habitChannel=new NotificationChannel(habitChannelID,habitChannelName, NotificationManager.IMPORTANCE_HIGH);
@@ -69,17 +64,12 @@ public class NotificationHelper extends ContextWrapper{
         habitChannel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
         getManager().createNotificationChannel(habitChannel);
 
-        //Create Notification channel for Motivational Quotes
-        NotificationChannel quoteChannel=new NotificationChannel(quoteChannelID,quoteChannelName, NotificationManager.IMPORTANCE_DEFAULT);
-        quoteChannel.enableLights(true);
-        quoteChannel.enableVibration(true);
-        quoteChannel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
-        getManager().createNotificationChannel(quoteChannel);
     }
 
     //This method creates a notification for a Habit Reminder
     public NotificationCompat.Builder createHabitNotification(String habitName, String habitMsg)
     {
+        //Create a pending intent which will be used to open AllHabitsActivity when the notification is tapped
         Intent intent=new Intent(this, AllHabitsActivity.class);
         PendingIntent pendingIntent= PendingIntent.getActivity(this,1,intent,PendingIntent.FLAG_UPDATE_CURRENT);
         return new NotificationCompat.Builder(getApplicationContext(),habitChannelID)
@@ -90,19 +80,5 @@ public class NotificationHelper extends ContextWrapper{
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true);
 
-    }
-
-    //This method creates a notification for Motivational Quotes
-    public NotificationCompat.Builder createQuoteNotification(String quote)
-    {
-        Intent intent = new Intent(this, MainActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this,2,intent,PendingIntent.FLAG_UPDATE_CURRENT);
-        return new NotificationCompat.Builder(getApplicationContext(),quoteChannelID)
-                .setContentTitle("Good Habits")
-                .setContentText(quote)
-                .setSmallIcon(R.drawable.ic_fire)
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                .setContentIntent(pendingIntent)
-                .setAutoCancel(true);
     }
 }

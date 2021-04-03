@@ -13,7 +13,8 @@ import java.util.Random;
 
 public class QuoteManager {
 
-    public String quoteOfTheDay="";
+    //Fields
+    public String quoteOfTheDay="Nothing is loaded";
     public ArrayList<String> allQuotes = new ArrayList<>();
     private Context quoteContext;
 
@@ -23,6 +24,7 @@ public class QuoteManager {
         loadQuoteList();
     }
 
+    //This method loads all the quotes into an arraylist
     public ArrayList<String> loadQuoteList(){
 
         AssetManager am = quoteContext.getAssets();
@@ -42,29 +44,19 @@ public class QuoteManager {
         return allQuotes;
     }
 
-    public void setQuoteOfTheDay()
+    //Sets a random quote from the list of quotes as the quote of the day
+    public void setRandomQuoteOfTheDay()
     {
         Random rand=new Random();
         int index=rand.nextInt(allQuotes.size());
         quoteOfTheDay=allQuotes.get(index);
     }
 
+    //returns quoteOfTheDay
     public String getQuoteOfTheDay()
     {
-        if (quoteOfTheDay.equals(""))
-        {
-            setQuoteOfTheDay();
-        }
+        setRandomQuoteOfTheDay();
         return quoteOfTheDay;
-
     }
-
-    public void setUpNotificationSystem()
-    {
-        Notifier qNotify= new Notifier(quoteContext);
-        setQuoteOfTheDay();
-        qNotify.setQuoteNotification(quoteOfTheDay);
-    }
-
 
 }

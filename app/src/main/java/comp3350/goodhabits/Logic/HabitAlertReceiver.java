@@ -15,14 +15,17 @@ public class HabitAlertReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         NotificationHelper alarm=new NotificationHelper(context);
+        //Get the information about the habit
         String title=intent.getStringExtra(habit_Name);
         String content=intent.getStringExtra(habit_Msg);
         int id=intent.getIntExtra(habit_Id,0);
+        //Check if the habit has been deleted
         if(HabitManager.checkHabit(id))
         {
             NotificationCompat.Builder nb=alarm.createHabitNotification(title,content);
             alarm.getManager().notify(id,nb.build());
         }
+        //Cancel the notification if the habit has been deleted
         else
         {
             Notifier nt= new Notifier(context);

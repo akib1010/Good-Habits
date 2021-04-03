@@ -23,7 +23,6 @@
             </intent-filter>
         </activity>
         <receiver android:name=".Logic.HabitAlertReceiver"/>
-        <receiver android:name=".Logic.QuoteAlertReceiver"/>
     </application>
 
 </manifest>
