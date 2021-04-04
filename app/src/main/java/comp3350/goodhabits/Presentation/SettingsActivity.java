@@ -13,6 +13,7 @@ import comp3350.goodhabits.R;
 public class SettingsActivity extends AppCompatActivity {
     // Storing data into SharedPreferences
     SharedPreferences sharedPreferences;
+    SwitchCompat quoteSwitch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,7 @@ public class SettingsActivity extends AppCompatActivity {
         }
 
         sharedPreferences = getSharedPreferences("QuoteSharedPref", Context.MODE_PRIVATE);
-        SwitchCompat quoteSwitch = (SwitchCompat) findViewById(R.id.quote_switch);
+        quoteSwitch = (SwitchCompat) findViewById(R.id.quote_switch);
 
         String state = sharedPreferences.getString("state", "");
         quoteSwitch.setChecked(state.equals("") || state.equals("on"));
