@@ -25,6 +25,10 @@ public class HabitManager{
     public static boolean addHabit(Habit habit){
         return habitStorage.addHabit(habit);
     }
+    
+    public static boolean updateHabit(Habit habit){
+        return habitStorage.updateHabit(habit);
+    }
 
     public static boolean checkHabit(int id)
     {
