@@ -4,7 +4,9 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.ImageButton;
@@ -12,7 +14,6 @@ import android.widget.TextView;
 
 import comp3350.goodhabits.Application.App;
 import comp3350.goodhabits.Logic.HabitManager;
-import comp3350.goodhabits.Logic.Notifier;
 import comp3350.goodhabits.Logic.QuoteManager;
 import comp3350.goodhabits.Objects.Habit;
 import comp3350.goodhabits.Persistence.SQLite.HabitSQLite;
@@ -20,11 +21,12 @@ import comp3350.goodhabits.R;
 
 import java.util.Objects;
 
-
 public class MainActivity extends AppCompatActivity {
-
-
-
+    SharedPreferences sharedPreferences;
+    QuoteManager quoteManager;
+    TextView quote;
+    private String quoteText = "";
+    private int count = 1;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -41,6 +43,23 @@ public class MainActivity extends AppCompatActivity {
             HabitManager.addHabit(new Habit(1,"Quit Smoking", false, "Smoking causes Cancer.", 11, 30, "13/03/2020", "18/05/2020", 0));
             HabitManager.addHabit(new Habit(2,"Do Yoga", true, "Need to stay fit.", 8, 0, "13/03/2020", "18/05/2020", 0));
             HabitManager.addHabit(new Habit(3,"Drink Water", true, "Need to hydrate my body.", 10, 30, "13/03/2020", "18/05/2020", 0));
+        }
+
+        quoteManager = new QuoteManager(this);
+        if(count == 1) {
+            quoteText = quoteManager.getQuote();
+            count += 1;
+        }
+
+        sharedPreferences = getSharedPreferences("QuoteSharedPref", Context.MODE_PRIVATE);
+        String state = sharedPreferences.getString("state", "");
+
+        quote = (TextView) findViewById(R.id.quote);
+        if(state.equals("off")){
+            quote.setText("");
+        }
+         else{
+            quote.setText(quoteText);
         }
 
         // Updating the Total Habits count
@@ -61,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
         catch (NullPointerException e) {
             System.out.println("Title bar of main screen could not be removed.");
         }
+
 
         // Clicking this button takes you to the Settings Screen
         ImageButton settings = (ImageButton) findViewById(R.id.settings_button);

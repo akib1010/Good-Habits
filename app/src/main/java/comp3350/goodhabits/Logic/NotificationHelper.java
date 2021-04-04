@@ -8,12 +8,8 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
 import android.os.Build;
-import android.view.View;
 
-import comp3350.goodhabits.Objects.Habit;
-import comp3350.goodhabits.Presentation.AddActivity;
 import comp3350.goodhabits.Presentation.AllHabitsActivity;
-import comp3350.goodhabits.Presentation.MainActivity;
 import comp3350.goodhabits.R;
 
 import androidx.annotation.RequiresApi;
@@ -21,10 +17,10 @@ import androidx.core.app.NotificationCompat;
 
 public class NotificationHelper extends ContextWrapper{
     //Id of the notification channel
-    public final String habitChannelID= "HabitChannel";
+    public final String habitChannelID = "HabitChannel";
 
     //Name of the notification channel
-    public final String habitChannelName="Habit Notification";
+    public final String habitChannelName ="Habit Notification";
 
     //A Notifier Variable used to handle the notifications
     public NotificationManager nManager;
@@ -38,7 +34,6 @@ public class NotificationHelper extends ContextWrapper{
         {
             createNotificationChannel();
         }
-
     }
 
 
@@ -46,9 +41,9 @@ public class NotificationHelper extends ContextWrapper{
     public NotificationManager getManager()
     {
         //Initialize nManager if it has not been initialized
-        if(nManager==null)
+        if(nManager == null)
         {
-            nManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+            nManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
         }
         return nManager;
     }
@@ -58,7 +53,7 @@ public class NotificationHelper extends ContextWrapper{
     public void createNotificationChannel()
     {
         //Create Notification channel for Habit and add features
-        NotificationChannel habitChannel=new NotificationChannel(habitChannelID,habitChannelName, NotificationManager.IMPORTANCE_HIGH);
+        NotificationChannel habitChannel = new NotificationChannel(habitChannelID,habitChannelName, NotificationManager.IMPORTANCE_HIGH);
         habitChannel.enableLights(true);
         habitChannel.enableVibration(true);
         habitChannel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
@@ -71,7 +66,7 @@ public class NotificationHelper extends ContextWrapper{
     {
         //Create a pending intent which will be used to open AllHabitsActivity when the notification is tapped
         Intent intent=new Intent(this, AllHabitsActivity.class);
-        PendingIntent pendingIntent= PendingIntent.getActivity(this,1,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this,1,intent,PendingIntent.FLAG_UPDATE_CURRENT);
         return new NotificationCompat.Builder(getApplicationContext(),habitChannelID)
                 .setContentTitle(habitName)
                 .setContentText(habitMsg)
@@ -79,6 +74,5 @@ public class NotificationHelper extends ContextWrapper{
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true);
-
     }
 }

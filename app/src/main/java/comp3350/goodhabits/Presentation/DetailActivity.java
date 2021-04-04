@@ -94,8 +94,8 @@ public class DetailActivity extends AppCompatActivity implements TimePickerDialo
                 }
             });
 
-            progressBar = (ProgressBar)findViewById(R.id.dv_progress_bar);
-            progressBar.getProgressDrawable().setColorFilter(Color.parseColor("#fbc263"), android.graphics.PorterDuff.Mode.SRC_IN);
+            progressBar = (ProgressBar)findViewById(R.id.rating_progress_bar);
+            progressBar.getProgressDrawable().setColorFilter(Color.parseColor("#FBC263"), android.graphics.PorterDuff.Mode.SRC_IN);
             progressBar.setProgress(habit.getDaysCheckedIn());
 
             checkInButton = (Button) findViewById(R.id.dv_check_in_button);

@@ -9,4 +9,10 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlActivated">#FCC15E</item>
+        <item name="colorControlNormal">#FBCF8C</item>
+    </style>
+
 </resources>

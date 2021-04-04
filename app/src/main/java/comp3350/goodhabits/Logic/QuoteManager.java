@@ -8,15 +8,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class QuoteManager {
 
     //Fields
-    public String quoteOfTheDay="Nothing is loaded";
-    public ArrayList<String> allQuotes = new ArrayList<>();
-    private Context quoteContext;
+    private ArrayList<String> allQuotes = new ArrayList<>();
+    private final Context quoteContext;
 
     // Constructor
     public QuoteManager(Context context){
@@ -24,7 +22,7 @@ public class QuoteManager {
         loadQuoteList();
     }
 
-    //This method loads all the quotes into an arraylist
+    //This method loads all the quotes into an array list
     public ArrayList<String> loadQuoteList(){
 
         AssetManager am = quoteContext.getAssets();
@@ -44,19 +42,12 @@ public class QuoteManager {
         return allQuotes;
     }
 
-    //Sets a random quote from the list of quotes as the quote of the day
-    public void setRandomQuoteOfTheDay()
-    {
-        Random rand=new Random();
-        int index=rand.nextInt(allQuotes.size());
-        quoteOfTheDay=allQuotes.get(index);
-    }
-
     //returns quoteOfTheDay
-    public String getQuoteOfTheDay()
+    public String getQuote()
     {
-        setRandomQuoteOfTheDay();
-        return quoteOfTheDay;
+        Random rand = new Random();
+        int index = rand.nextInt(allQuotes.size());
+        return allQuotes.get(index);
     }
 
 }
