@@ -16,6 +16,8 @@ import android.widget.ListView;
 
 import comp3350.goodhabits.Logic.HabitManager;
 
+import comp3350.goodhabits.Logic.Notifier;
+import comp3350.goodhabits.Objects.Habit;
 import comp3350.goodhabits.R;
 
 public class AllHabitsActivity extends AppCompatActivity {
@@ -59,7 +61,6 @@ public class AllHabitsActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
 
-                                //remove item from habitStorage
                                 HabitManager.deleteHabitByIndex(position);
 
                                 //refresh detail page
