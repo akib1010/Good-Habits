@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.goodhabit.Presentation.AllHabitsActivity">
+    tools:context="comp3350.goodhabits.Presentation.AllHabitsActivity">
 
     <ListView
         android:id="@+id/listview"
