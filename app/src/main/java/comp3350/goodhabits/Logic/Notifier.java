@@ -11,9 +11,9 @@ import comp3350.goodhabits.Objects.Habit;
 
 public class Notifier {
     //Name Tags to pass to new Intent
-    private final String HABIT_NAME="Habit Name";
-    private final String HABIT_MSG="Habit Msg";
-    private final String HABIT_ID="Habit ID";
+    private final String HABIT_NAME = "Habit Name";
+    private final String HABIT_MSG = "Habit Msg";
+    private final String HABIT_ID = "Habit ID";
     Context context;
 
     //Constructor
@@ -26,14 +26,14 @@ public class Notifier {
     public void setHabitNotification(Habit habit)
     {
         //Calendar instance used to set the time
-        Calendar c=setTime(habit.getHour(),habit.getMinute());
-        AlarmManager alarmManager=(AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        Calendar c = setTime(habit.getHour(),habit.getMinute());
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         //Intent is created so that information about the habit can be sent to the broadcast receiver
         Intent intent = new Intent(context, HabitAlertReceiver.class);
         intent.putExtra(HABIT_NAME,habit.getHabitName());
         intent.putExtra(HABIT_MSG,habit.getHabitMsg());
         intent.putExtra(HABIT_ID,habit.getId());
-        PendingIntent pendingIntent=PendingIntent.getBroadcast(context,habit.getId(),intent,0);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context,habit.getId(),intent,0);
         //Set a repeating alarm
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,c.getTimeInMillis(),AlarmManager.INTERVAL_DAY,pendingIntent);
     }
@@ -41,9 +41,9 @@ public class Notifier {
     //This method cancels the notification set for a particular habit
     public void cancelAlarm(Context c,int id)
     {
-        AlarmManager alarmManager=(AlarmManager)c.getSystemService(Context.ALARM_SERVICE);
+        AlarmManager alarmManager = (AlarmManager)c.getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(c,HabitAlertReceiver.class);
-        PendingIntent pendingIntent=PendingIntent.getBroadcast(c,id,intent,0);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(c,id,intent,0);
         alarmManager.cancel(pendingIntent);
         pendingIntent.cancel();
     }
@@ -53,7 +53,7 @@ public class Notifier {
     public Calendar setTime(int hour,int min)
     {
         //Set the time for the notification
-        Calendar c= Calendar.getInstance();
+        Calendar c = Calendar.getInstance();
         c.set(Calendar.HOUR_OF_DAY,hour);
         c.set(Calendar.MINUTE,min);
         c.set(Calendar.SECOND,0);

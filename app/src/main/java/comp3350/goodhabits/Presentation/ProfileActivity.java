@@ -1,10 +1,13 @@
 package comp3350.goodhabits.Presentation;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import comp3350.goodhabits.Logic.ProfileManager;
@@ -12,7 +15,11 @@ import comp3350.goodhabits.Objects.Profile;
 import comp3350.goodhabits.R;
 
 public class ProfileActivity extends AppCompatActivity {
+    Profile profile;
+    RatingBar ratingBar;
+    TextView ratingNum;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +34,13 @@ public class ProfileActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        Profile profile = ProfileManager.getProfileStorage(); // getting the non-persistent profile info
+        ratingBar = (RatingBar) findViewById(R.id.rating_bar); // initiate a rating bar
+        ratingBar.setRating((float) 2.5);
+
+        ratingNum = (TextView) findViewById(R.id.rating_num);
+        ratingNum.setText(String.valueOf(ratingBar.getRating()));
+
+        profile = ProfileManager.getProfileStorage(); // getting the non-persistent profile info
         String[] profileInfo = {profile.getName(), profile.getEmail()}; // putting the info in a String array
         fillProfileActivity(profileInfo);
     }

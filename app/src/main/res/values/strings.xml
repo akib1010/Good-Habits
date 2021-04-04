@@ -37,4 +37,7 @@
     <string name="_0">0</string>
     <string name="_66">66</string>
     <string name="change_time">Change time</string>
+    <string name="quote">Quote</string>
+    <string name="show_quotes_on_home_screen">Show quotes on home screen</string>
+    <string name="rating">Rating</string>
 </resources>
