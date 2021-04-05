@@ -20,10 +20,10 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import comp3350.goodhabits.Logic.DateParser;
+import comp3350.goodhabits.Logic.DateManager;
 import comp3350.goodhabits.Logic.HabitManager;
 import comp3350.goodhabits.Logic.Notifier;
-import comp3350.goodhabits.Logic.TimeParser;
+import comp3350.goodhabits.Logic.TimeManager;
 import comp3350.goodhabits.Logic.TimePickerFragment;
 import comp3350.goodhabits.Objects.Habit;
 import comp3350.goodhabits.R;
@@ -40,8 +40,8 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
     private int minute = -1; // Initialized to -1
     private Notifier notifier=new Notifier(AddActivity.this);
 
-    TimeParser time = new TimeParser();
-    DateParser dateParser = new DateParser();
+    TimeManager time = new TimeManager();
+    DateManager dateParser = new DateManager();
 
     MainActivity activity=new MainActivity();
     @Override

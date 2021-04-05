@@ -1,14 +1,10 @@
 package comp3350.goodhabits.Logic;
 
-import android.app.AlarmManager;
-import android.content.Context;
-
-
 import comp3350.goodhabits.Objects.Habit;
 import comp3350.goodhabits.Persistence.HabitStorageI;
 
+import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Calendar;
 
 public class HabitManager{
 
@@ -70,8 +66,8 @@ public class HabitManager{
     public static void deleteHabitByIndex(int index){
         habitStorage.deleteHabitByIndex(index);
     }
-    public static Habit getHabitByIndex(int index)
-    {
+
+    public static Habit getHabitByIndex(int index) {
         return getHabitList().get(index);
     }
 
@@ -88,4 +84,27 @@ public class HabitManager{
         return id;
     }
 
+    public static int getTotalCheckins(){
+        int totalCheckIns = 0;
+        ArrayList<Habit> list = habitStorage.getHabitList();
+        for(int i=0 ; i<list.size() ; i++) {
+            totalCheckIns += list.get(i).getDaysCheckedIn();
+        }
+        return totalCheckIns;
+    }
+
+    public static int getTotalDaysPassed(){
+        DateManager dateParser = new DateManager();
+        int totalDaysPassed = 0;
+        ArrayList<Habit> list = habitStorage.getHabitList();
+        for(int i=0 ; i<list.size() ; i++) {
+            try {
+                int days = dateParser.getDaysPassed(list.get(i).getStartDate(), dateParser.getTodaysDate());
+                totalDaysPassed += Math.min(days, 66);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+        return totalDaysPassed;
+    }
 }
