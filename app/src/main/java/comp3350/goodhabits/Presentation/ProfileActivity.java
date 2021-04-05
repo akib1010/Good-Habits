@@ -11,6 +11,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import comp3350.goodhabits.Logic.ProfileManager;
+import comp3350.goodhabits.Logic.RatingManager;
 import comp3350.goodhabits.Objects.Profile;
 import comp3350.goodhabits.R;
 
@@ -18,6 +19,7 @@ public class ProfileActivity extends AppCompatActivity {
     Profile profile;
     RatingBar ratingBar;
     TextView ratingNum;
+    RatingManager ratingManager;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -34,8 +36,10 @@ public class ProfileActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
+        ratingManager = new RatingManager();
+
         ratingBar = (RatingBar) findViewById(R.id.rating_bar); // initiate a rating bar
-        ratingBar.setRating((float) 2.5);
+        ratingBar.setRating(ratingManager.getRating());
 
         ratingNum = (TextView) findViewById(R.id.rating_num);
         ratingNum.setText(String.valueOf(ratingBar.getRating()));

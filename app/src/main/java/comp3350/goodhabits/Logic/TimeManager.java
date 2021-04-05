@@ -1,8 +1,8 @@
 package comp3350.goodhabits.Logic;
 
-public class TimeParser {
+public class TimeManager {
 
-    public TimeParser(){
+    public TimeManager(){
 
     }
 

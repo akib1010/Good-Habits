@@ -1,6 +1,6 @@
 package com.example.goodhabit;
 
-import comp3350.goodhabits.Logic.DateParser;
+import comp3350.goodhabits.Logic.DateManager;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -8,13 +8,13 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class DateTest {
-    private DateParser dateParser;
+    private DateManager dateParser;
     private String startDate;
     private String currDate;
 
     @Before
     public void setUp(){
-        dateParser = new DateParser();
+        dateParser = new DateManager();
         startDate = "05/03/2021";
         currDate = "17/03/2021";
     }

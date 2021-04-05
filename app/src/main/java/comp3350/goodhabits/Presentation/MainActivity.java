@@ -40,9 +40,9 @@ public class MainActivity extends AppCompatActivity {
         // new HabitManager(new HabitStorage());
 
         if(HabitManager.getHabitListSize() == 0){
-            HabitManager.addHabit(new Habit(1,"Quit Smoking", false, "Smoking causes Cancer.", 11, 30, "13/03/2020", "18/05/2020", 0));
-            HabitManager.addHabit(new Habit(2,"Do Yoga", true, "Need to stay fit.", 8, 0, "13/03/2020", "18/05/2020", 0));
-            HabitManager.addHabit(new Habit(3,"Drink Water", true, "Need to hydrate my body.", 10, 30, "13/03/2020", "18/05/2020", 0));
+            HabitManager.addHabit(new Habit(1,"Quit Smoking", false, "Smoking causes Cancer.", 11, 30, "13/03/2020", "18/05/2020", 35));
+            HabitManager.addHabit(new Habit(2,"Drink Water", true, "Need to hydrate my body.", 10, 30, "13/03/2020", "18/05/2020", 54));
+            HabitManager.addHabit(new Habit(3,"Do Yoga", true, "Need to stay fit.", 8, 0, "01/04/2021", "06/06/2021", 2));
         }
 
         quoteManager = new QuoteManager(this);
@@ -80,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
         catch (NullPointerException e) {
             System.out.println("Title bar of main screen could not be removed.");
         }
-
 
         // Clicking this button takes you to the Settings Screen
         ImageButton settings = (ImageButton) findViewById(R.id.settings_button);

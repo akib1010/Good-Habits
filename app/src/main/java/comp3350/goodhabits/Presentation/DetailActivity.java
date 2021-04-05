@@ -15,9 +15,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
-import comp3350.goodhabits.Logic.DateParser;
+import comp3350.goodhabits.Logic.DateManager;
 import comp3350.goodhabits.Logic.HabitManager;
-import comp3350.goodhabits.Logic.TimeParser;
+import comp3350.goodhabits.Logic.TimeManager;
 import comp3350.goodhabits.Logic.TimePickerFragment;
 import comp3350.goodhabits.Objects.Habit;
 import comp3350.goodhabits.R;
@@ -39,8 +39,8 @@ public class DetailActivity extends AppCompatActivity implements TimePickerDialo
 
     private final int DCI = 66; // Days Checked In
     Habit habit;
-    DateParser dateParser = new DateParser();
-    TimeParser timeParser = new TimeParser();
+    DateManager dateParser = new DateManager();
+    TimeManager timeParser = new TimeManager();
     ArrayList<Habit> habitList = HabitManager.getHabitList();
 
     @SuppressLint("SetTextI18n")
@@ -76,9 +76,11 @@ public class DetailActivity extends AppCompatActivity implements TimePickerDialo
                 e.printStackTrace();
             }
             if(days >= DCI){
+                System.out.println(days);
                 daysPassed.setText(DCI+"+");
             }
             else{
+                System.out.println(days);
                 daysPassed.setText(String.valueOf(days));
             }
 

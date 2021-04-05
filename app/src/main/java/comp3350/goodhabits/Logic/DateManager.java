@@ -9,12 +9,12 @@ import java.util.Calendar;
 import java.util.Date;
 
 
-public class DateParser {
+public class DateManager {
 
     @SuppressLint("SimpleDateFormat")
     private static final DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
-    public DateParser(){
+    public DateManager(){
 
     }
 
