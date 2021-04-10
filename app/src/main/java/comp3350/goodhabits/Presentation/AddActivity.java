@@ -38,12 +38,10 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
     private String msg;
     private int hour = -1; // Initialized to -1
     private int minute = -1; // Initialized to -1
-    private Notifier notifier=new Notifier(AddActivity.this);
 
     TimeManager time = new TimeManager();
     DateManager dateParser = new DateManager();
 
-    MainActivity activity=new MainActivity();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,8 +106,6 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
                     Habit newHabit = createHabit(name,type,msg,hour,minute); // Create a Habit
                     addHabit(newHabit); // Add the Habit to the list of Habits
                     startActivity(new Intent(AddActivity.this, MainActivity.class)); // Go to the main screen
-                //Set a notification for the habit
-                    notifier.setHabitNotification(newHabit);
                 }
             }
         });
@@ -188,7 +184,6 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
         if(hour == -1 && minute == -1)
         {
             errorMsg="Time is not chosen";
-            //Toast.makeText(this,"Time is not chosen!",Toast.LENGTH_SHORT).show();
             toastFired = true;
         }
 

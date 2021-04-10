@@ -19,10 +19,17 @@ public class HabitManager{
     }
 
     public static boolean addHabit(Habit habit){
+        //Set the notification for the habit
+        Notifier.setHabitNotification(habit);
         return habitStorage.addHabit(habit);
     }
     
-    public static boolean updateHabit(Habit habit){
+    public static boolean updateHabit(Habit habit)
+    {
+        //Cancel the notification for the old time
+        Notifier.cancelAlarm(habit.getId());
+        //Set a notification for the new time
+        Notifier.setHabitNotification(habit);
         return habitStorage.updateHabit(habit);
     }
 
@@ -52,6 +59,8 @@ public class HabitManager{
     }
 
     public static boolean deleteHabit(Habit habit){
+        //Cancel the notification of the habit that is deleted
+        Notifier.cancelAlarm(habit.getId());
         return habitStorage.deleteHabit(habit);
     }
 
@@ -64,6 +73,9 @@ public class HabitManager{
     }
 
     public static void deleteHabitByIndex(int index){
+        //Cancel the notification of the habit that is deleted
+        Habit habit=getHabitByIndex(index);
+        Notifier.cancelAlarm(habit.getId());
         habitStorage.deleteHabitByIndex(index);
     }
 

@@ -11,10 +11,10 @@ import comp3350.goodhabits.Objects.Habit;
 
 public class Notifier {
     //Name Tags to pass to new Intent
-    private final String HABIT_NAME = "Habit Name";
-    private final String HABIT_MSG = "Habit Msg";
-    private final String HABIT_ID = "Habit ID";
-    Context context;
+    private static final String HABIT_NAME = "Habit Name";
+    private static final String HABIT_MSG = "Habit Msg";
+    private static final String HABIT_ID = "Habit ID";
+    static Context context;
 
     //Constructor
     public Notifier(Context c)
@@ -23,7 +23,7 @@ public class Notifier {
     }
 
     //This method sets up a repeating notification for a habit
-    public void setHabitNotification(Habit habit)
+    public static void setHabitNotification(Habit habit)
     {
         //Calendar instance used to set the time
         Calendar c = setTime(habit.getHour(),habit.getMinute());
@@ -39,18 +39,18 @@ public class Notifier {
     }
 
     //This method cancels the notification set for a particular habit
-    public void cancelAlarm(Context c,int id)
+    public static void cancelAlarm(int id)
     {
-        AlarmManager alarmManager = (AlarmManager)c.getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(c,HabitAlertReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(c,id,intent,0);
+        AlarmManager alarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(context,HabitAlertReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context,id,intent,0);
         alarmManager.cancel(pendingIntent);
         pendingIntent.cancel();
     }
 
 
     //This method sets the time during which the notification will be active
-    public Calendar setTime(int hour,int min)
+    public static Calendar setTime(int hour, int min)
     {
         //Set the time for the notification
         Calendar c = Calendar.getInstance();

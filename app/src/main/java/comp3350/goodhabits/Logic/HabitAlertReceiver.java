@@ -19,17 +19,11 @@ public class HabitAlertReceiver extends BroadcastReceiver {
         String title = intent.getStringExtra(habitName);
         String content = intent.getStringExtra(habitMsg);
         int id = intent.getIntExtra(habitId,0);
-        //Check if the habit has been deleted
+        //Check if the habit Exists
         if(HabitManager.checkHabit(id))
         {
             NotificationCompat.Builder nb = alarm.createHabitNotification(title,content);
             alarm.getManager().notify(id,nb.build());
-        }
-        //Cancel the notification if the habit has been deleted
-        else
-        {
-            Notifier nt = new Notifier(context);
-            nt.cancelAlarm(context,id);
         }
     }
 }

@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import comp3350.goodhabits.Application.App;
 import comp3350.goodhabits.Logic.HabitManager;
+import comp3350.goodhabits.Logic.Notifier;
 import comp3350.goodhabits.Logic.QuoteManager;
 import comp3350.goodhabits.Objects.Habit;
 import comp3350.goodhabits.Persistence.SQLite.HabitSQLite;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Manager for Persistent Habit Storage
         new HabitManager(new HabitSQLite(this));
+        new Notifier(MainActivity.this);
 
         // Manager for Non-Persistent Habit Storage
         // new HabitManager(new HabitStorage());
