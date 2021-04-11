@@ -8,10 +8,14 @@ import java.util.ArrayList;
 
 public class HabitManager{
 
-    private static HabitStorageI habitStorage;
+    private static HabitStorageI habitStorage = null;
 
-    public HabitManager(HabitStorageI db){
+    public static void createDB(HabitStorageI db) {
         habitStorage = db;
+    }
+
+    public static HabitStorageI getDB(){
+        return habitStorage;
     }
 
     public static ArrayList<Habit> getHabitList(){
@@ -106,5 +110,15 @@ public class HabitManager{
             }
         }
         return totalDaysPassed;
+    }
+
+    public static int getTotalNumGoodHabits(){
+        int count = 0;
+        ArrayList<Habit> list = habitStorage.getHabitList();
+        for(int i=0 ; i<list.size() ; i++) {
+            if (list.get(i).getHabitType())
+                count += 1;
+        }
+        return count;
     }
 }

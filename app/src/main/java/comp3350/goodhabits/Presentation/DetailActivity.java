@@ -36,8 +36,10 @@ public class DetailActivity extends AppCompatActivity implements TimePickerDialo
     Button changeTime;
     ProgressBar progressBar;
     Button checkInButton;
+    View type;
 
     private final int DCI = 66; // Days Checked In
+    private int days = 0;
     Habit habit;
     DateManager dateParser = new DateManager();
     TimeManager timeParser = new TimeManager();
@@ -56,6 +58,12 @@ public class DetailActivity extends AppCompatActivity implements TimePickerDialo
             name = (TextView) findViewById(R.id.dv_name);
             name.setText(habit.getHabitName());
 
+            type = (View) findViewById(R.id.dv_type);
+            if(habit.getHabitType())
+                type.setBackgroundColor(Color.parseColor("#66BB6A"));
+            else
+                type.setBackgroundColor(Color.parseColor("#Ef5350"));
+
             message = (TextView) findViewById(R.id.dv_message);
             message.setText(habit.getHabitMsg());
 
@@ -69,7 +77,6 @@ public class DetailActivity extends AppCompatActivity implements TimePickerDialo
             endDate.setText(habit.getEndDate());
 
             daysPassed = (TextView) findViewById(R.id.dv_days_passed);
-            int days = 0;
             try {
                 days = dateParser.getDaysPassed(habit.getStartDate(), dateParser.getTodaysDate());
             } catch (ParseException e) {
@@ -128,11 +135,13 @@ public class DetailActivity extends AppCompatActivity implements TimePickerDialo
     }
 
     public void increaseCheckIn(){
-        if (habit.getDaysCheckedIn() < 66){
-            habit.increaseCheckIn();
-            HabitManager.updateHabit(habit);
-            checkins.setText(String.valueOf(habit.getDaysCheckedIn()));
-            progressBar.setProgress(habit.getDaysCheckedIn());
+        if (habit.getDaysCheckedIn() < DCI){
+            if(habit.getDaysCheckedIn() < days){
+                habit.increaseCheckIn();
+                HabitManager.updateHabit(habit);
+                checkins.setText(String.valueOf(habit.getDaysCheckedIn()));
+                progressBar.setProgress(habit.getDaysCheckedIn());
+            }
         }
     }
 

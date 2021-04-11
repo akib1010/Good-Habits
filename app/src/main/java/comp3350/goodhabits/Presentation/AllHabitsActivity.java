@@ -16,14 +16,11 @@ import android.widget.ListView;
 
 import comp3350.goodhabits.Logic.HabitManager;
 
-import comp3350.goodhabits.Logic.Notifier;
-import comp3350.goodhabits.Objects.Habit;
 import comp3350.goodhabits.R;
 
 public class AllHabitsActivity extends AppCompatActivity {
 
-    private ArrayAdapter <String>  arrayAdapter;
-    private ListView listView;
+    private ArrayAdapter <String>  arrayAdapter1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +28,11 @@ public class AllHabitsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_all_habits);
 
         Intent intent = new Intent(this, DetailActivity.class);
-        listView = (ListView)findViewById(R.id.listview);
+        ListView listView = (ListView) findViewById(R.id.listview);
 
         try {
-            arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,HabitManager.getAllHabitNames());
-            listView.setAdapter(arrayAdapter);
+            arrayAdapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, HabitManager.getAllHabitNames());
+            listView.setAdapter(arrayAdapter1);
         }
         catch(Exception e){
             e.printStackTrace();
@@ -64,7 +61,8 @@ public class AllHabitsActivity extends AppCompatActivity {
                                 HabitManager.deleteHabitByIndex(position);
 
                                 //refresh detail page
-                                arrayAdapter.notifyDataSetChanged();
+                                arrayAdapter1.notifyDataSetChanged();
+
                                 // startActivity(new Intent(AllHabitsActivity.this, AllHabitsActivity.class));
                                 finish();
                                 startActivity(getIntent());
@@ -72,7 +70,6 @@ public class AllHabitsActivity extends AppCompatActivity {
                         })
                         .setNegativeButton("No",null)
                         .show();
-
                 return true;
             }
         });
