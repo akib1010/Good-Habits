@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import comp3350.goodhabits.Application.App;
 import comp3350.goodhabits.Logic.HabitManager;
+import comp3350.goodhabits.Logic.Notifier;
 import comp3350.goodhabits.Logic.QuoteManager;
 import comp3350.goodhabits.R;
 
@@ -31,6 +32,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume(){
         super.onResume();
 
+<<<<<<< app/src/main/java/comp3350/goodhabits/Presentation/MainActivity.java
+=======
+        new Notifier(MainActivity.this);
+
+>>>>>>> app/src/main/java/comp3350/goodhabits/Presentation/MainActivity.java
         quoteManager = new QuoteManager(this);
         if(count == 1) {
             quoteText = quoteManager.getQuote();

@@ -17,6 +17,7 @@ import android.widget.TimePicker;
 
 import comp3350.goodhabits.Logic.DateManager;
 import comp3350.goodhabits.Logic.HabitManager;
+import comp3350.goodhabits.Logic.Notifier;
 import comp3350.goodhabits.Logic.TimeManager;
 import comp3350.goodhabits.Logic.TimePickerFragment;
 import comp3350.goodhabits.Objects.Habit;
