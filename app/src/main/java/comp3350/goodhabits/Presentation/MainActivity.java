@@ -16,8 +16,6 @@ import comp3350.goodhabits.Application.App;
 import comp3350.goodhabits.Logic.HabitManager;
 import comp3350.goodhabits.Logic.Notifier;
 import comp3350.goodhabits.Logic.QuoteManager;
-import comp3350.goodhabits.Objects.Habit;
-import comp3350.goodhabits.Persistence.SQLite.HabitSQLite;
 import comp3350.goodhabits.R;
 
 import java.util.Objects;
@@ -34,19 +32,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume(){
         super.onResume();
 
-        // Manager for Persistent Habit Storage
-        new HabitManager(new HabitSQLite(this));
+<<<<<<< app/src/main/java/comp3350/goodhabits/Presentation/MainActivity.java
+=======
         new Notifier(MainActivity.this);
 
-        // Manager for Non-Persistent Habit Storage
-        // new HabitManager(new HabitStorage());
-
-        if(HabitManager.getHabitListSize() == 0){
-            HabitManager.addHabit(new Habit(1,"Quit Smoking", false, "Smoking causes Cancer.", 11, 30, "13/03/2020", "18/05/2020", 35));
-            HabitManager.addHabit(new Habit(2,"Drink Water", true, "Need to hydrate my body.", 10, 30, "13/03/2020", "18/05/2020", 54));
-            HabitManager.addHabit(new Habit(3,"Do Yoga", true, "Need to stay fit.", 8, 0, "01/04/2021", "06/06/2021", 2));
-        }
-
+>>>>>>> app/src/main/java/comp3350/goodhabits/Presentation/MainActivity.java
         quoteManager = new QuoteManager(this);
         if(count == 1) {
             quoteText = quoteManager.getQuote();
@@ -65,8 +55,14 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // Updating the Total Habits count
-        TextView habitCount = (TextView) findViewById(R.id.habit_count_view);
+        TextView habitCount = (TextView) findViewById(R.id.h_count_view);
         habitCount.setText(Integer.toString(HabitManager.getHabitListSize()));
+
+        TextView ghCount = (TextView) findViewById(R.id.gh_count_view);
+        ghCount.setText(Integer.toString(HabitManager.getTotalNumGoodHabits()));
+
+        TextView bhCount = (TextView) findViewById(R.id.bh_count_view);
+        bhCount.setText(Integer.toString(HabitManager.getHabitListSize() - HabitManager.getTotalNumGoodHabits()));
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)

@@ -40,4 +40,6 @@
     <string name="quote">Quote</string>
     <string name="show_quotes_on_home_screen">Show quotes on home screen</string>
     <string name="rating">Rating</string>
+    <string name="good_habits">Good Habits</string>
+    <string name="bad_habits">Bad Habits</string>
 </resources>

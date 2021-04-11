@@ -8,8 +8,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import comp3350.goodhabits.Logic.HabitManager;
 import comp3350.goodhabits.Logic.ProfileManager;
+import comp3350.goodhabits.Objects.Habit;
 import comp3350.goodhabits.Objects.Profile;
+import comp3350.goodhabits.Persistence.SQLite.HabitSQLite;
 import comp3350.goodhabits.Persistence.SQLite.ProfileSQLite;
 import comp3350.goodhabits.R;
 
@@ -23,11 +26,27 @@ public class ProfileInputActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        // Manager for Persistent Profile Storage
-        new ProfileManager(new ProfileSQLite(this));
+        if(HabitManager.getDB() == null){
+            // Manager for Persistent Habit Storage
+            HabitManager.createDB(new HabitSQLite(this));
 
-        // Manager for Non-Persistent Profile Storage
-        // new ProfileManager(new ProfileStorage());
+            // Manager for Non-Persistent Habit Storage
+            // HabitManager.createDB(new HabitStorage());
+        }
+
+        if(ProfileManager.getDB() == null){
+            // Manager for Persistent Profile Storage
+            ProfileManager.createDB(new ProfileSQLite(this));
+
+            // Manager for Non-Persistent Profile Storage
+            // ProfileManager.createDB(new ProfileStorage());
+        }
+
+        if(HabitManager.getHabitListSize() == 0){
+            HabitManager.addHabit(new Habit(1,"Quit Smoking", false, "Smoking causes Cancer.", 11, 30, "13/03/2020", "18/05/2020", 15));
+            HabitManager.addHabit(new Habit(2,"Drink Water", true, "Need to hydrate my body.", 10, 30, "13/03/2020", "18/05/2020", 34));
+            HabitManager.addHabit(new Habit(3,"Do Yoga", true, "Need to stay fit.", 8, 0, "01/04/2021", "06/06/2021", 2));
+        }
 
         // If profileIsSet is true then fills profile with fake data and goes directly to Main Screen
         if(ProfileManager.getProfileStorage() != null){

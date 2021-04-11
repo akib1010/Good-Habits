@@ -17,16 +17,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/dv_name"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:text="@string/name"
-            android:textColor="#009688"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:typeface="normal" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/dv_name"
+                android:layout_width="345dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="@string/name"
+                android:textColor="#009688"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="normal" />
+
+            <View
+                android:id="@+id/dv_type"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/dv_message"
