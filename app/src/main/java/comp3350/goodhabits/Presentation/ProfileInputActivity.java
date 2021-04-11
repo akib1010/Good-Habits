@@ -9,13 +9,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import comp3350.goodhabits.Logic.HabitManager;
+import comp3350.goodhabits.Logic.Notifier;
 import comp3350.goodhabits.Logic.ProfileManager;
 import comp3350.goodhabits.Objects.Habit;
 import comp3350.goodhabits.Objects.Profile;
 import comp3350.goodhabits.Persistence.SQLite.HabitSQLite;
 import comp3350.goodhabits.Persistence.SQLite.ProfileSQLite;
 import comp3350.goodhabits.R;
-
 
 public class ProfileInputActivity extends AppCompatActivity {
 
@@ -25,6 +25,9 @@ public class ProfileInputActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        if(Notifier.getContext() == null)
+            Notifier.setNotifier(ProfileInputActivity.this);
 
         if(HabitManager.getDB() == null){
             // Manager for Persistent Habit Storage
