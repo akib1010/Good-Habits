@@ -32,11 +32,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume(){
         super.onResume();
 
-<<<<<<< app/src/main/java/comp3350/goodhabits/Presentation/MainActivity.java
-=======
-        new Notifier(MainActivity.this);
-
->>>>>>> app/src/main/java/comp3350/goodhabits/Presentation/MainActivity.java
         quoteManager = new QuoteManager(this);
         if(count == 1) {
             quoteText = quoteManager.getQuote();

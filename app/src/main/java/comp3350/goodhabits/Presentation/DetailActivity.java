@@ -137,7 +137,7 @@ public class DetailActivity extends AppCompatActivity implements TimePickerDialo
 
     public void increaseCheckIn(){
         if (habit.getDaysCheckedIn() < DCI){
-            if(habit.getDaysCheckedIn() < days){
+            if(habit.getDaysCheckedIn() < days) {
                 habit.increaseCheckIn();
                 HabitManager.updateHabit(habit);
                 checkins.setText(String.valueOf(habit.getDaysCheckedIn()));
