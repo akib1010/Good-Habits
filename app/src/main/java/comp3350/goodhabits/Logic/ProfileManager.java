@@ -16,12 +16,16 @@ public class ProfileManager {
         return profileStorage;
     }
 
-    public static void addToProfileStorage(Profile profile){
-        profileStorage.addToProfileStorage(profile);
+    public static boolean addToProfileStorage(Profile profile){
+        return profileStorage.addToProfileStorage(profile);
     }
 
     public static Profile getProfileStorage(){
         return profileStorage.getProfileStorage();
+    }
+
+    public static boolean makeProfileEmpty(){
+        return profileStorage.makeProfileEmpty();
     }
 
 }

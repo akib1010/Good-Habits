@@ -13,12 +13,18 @@ public class ProfileStorage implements ProfileStorageI {
     }
 
     // Function to add the User's profile to an ArrayList
-    public void addToProfileStorage(Profile profile){
+    public boolean addToProfileStorage(Profile profile){
         userProfile = profile;
+        return userProfile != null;
     }
 
     // Function to get the User's profile in the ArrayList
     public Profile getProfileStorage(){
         return userProfile;
+    }
+
+    public boolean makeProfileEmpty() {
+        userProfile = null;
+        return true;
     }
 }

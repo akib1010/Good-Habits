@@ -15,6 +15,7 @@ public class QuoteManager {
     //Fields
     private ArrayList<String> allQuotes = new ArrayList<>();
     private final Context quoteContext;
+    private static boolean testMode = false;
 
     // Constructor
     public QuoteManager(Context context){
@@ -23,8 +24,7 @@ public class QuoteManager {
     }
 
     //This method loads all the quotes into an array list
-    public ArrayList<String> loadQuoteList(){
-
+    public void loadQuoteList(){
         AssetManager am = quoteContext.getAssets();
 
         try {
@@ -38,16 +38,26 @@ public class QuoteManager {
         catch (IOException e) {
             e.printStackTrace();
         }
+    }
 
-        return allQuotes;
+    public void testMode(){
+        testMode = true;
+    }
+
+    public void notTestMode(){
+        testMode = false;
     }
 
     //returns quoteOfTheDay
     public String getQuote()
     {
-        Random rand = new Random();
-        int index = rand.nextInt(allQuotes.size());
-        return allQuotes.get(index);
+        if(!testMode) {
+            Random rand = new Random();
+            int index = rand.nextInt(allQuotes.size());
+            return allQuotes.get(index);
+        }
+        else{
+            return "This quote is for System Testing - devTeam";
+        }
     }
-
 }

@@ -22,7 +22,6 @@ import android.widget.Toast;
 
 import comp3350.goodhabits.Logic.DateManager;
 import comp3350.goodhabits.Logic.HabitManager;
-import comp3350.goodhabits.Logic.Notifier;
 import comp3350.goodhabits.Logic.TimeManager;
 import comp3350.goodhabits.Logic.TimePickerFragment;
 import comp3350.goodhabits.Objects.Habit;
@@ -105,7 +104,7 @@ public class AddActivity extends AppCompatActivity implements TimePickerDialog.O
                 if(!validateForm()) {
                     Habit newHabit = createHabit(name,type,msg,hour,minute); // Create a Habit
                     addHabit(newHabit); // Add the Habit to the list of Habits
-                    startActivity(new Intent(AddActivity.this, MainActivity.class)); // Go to the main screen
+                    startActivity(new Intent(AddActivity.this, HomeActivity.class)); // Go to the main screen
                 }
             }
         });

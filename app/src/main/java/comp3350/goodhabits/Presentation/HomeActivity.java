@@ -12,15 +12,13 @@ import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import comp3350.goodhabits.Application.App;
 import comp3350.goodhabits.Logic.HabitManager;
-import comp3350.goodhabits.Logic.Notifier;
 import comp3350.goodhabits.Logic.QuoteManager;
 import comp3350.goodhabits.R;
 
 import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     QuoteManager quoteManager;
     TextView quote;
@@ -64,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
 
         // To remove the default Title Bar of this Activity
         try {
@@ -111,7 +109,4 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void setContext(){
-        App.setContext(this);
-    }
 }
