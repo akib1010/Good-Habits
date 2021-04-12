@@ -72,8 +72,8 @@ public class HabitManager{
         return habitStorage.getHabitList().size();
     }
 
-    public static void makeListEmpty(){
-        habitStorage.makeListEmpty();
+    public static boolean makeHabitListEmpty(){
+        return habitStorage.makeHabitListEmpty();
     }
 
     public static void deleteHabitByIndex(int index){

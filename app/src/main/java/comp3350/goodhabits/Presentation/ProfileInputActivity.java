@@ -15,6 +15,8 @@ import comp3350.goodhabits.Objects.Habit;
 import comp3350.goodhabits.Objects.Profile;
 import comp3350.goodhabits.Persistence.SQLite.HabitSQLite;
 import comp3350.goodhabits.Persistence.SQLite.ProfileSQLite;
+import comp3350.goodhabits.Persistence.Stubs.HabitStorage;
+import comp3350.goodhabits.Persistence.Stubs.ProfileStorage;
 import comp3350.goodhabits.R;
 
 public class ProfileInputActivity extends AppCompatActivity {
@@ -78,7 +80,7 @@ public class ProfileInputActivity extends AppCompatActivity {
 
     // Helper function to move to Main Activity
     public void moveToMainActivity(){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
     }
 

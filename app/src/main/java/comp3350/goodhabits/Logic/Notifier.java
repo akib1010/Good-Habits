@@ -14,7 +14,7 @@ public class Notifier {
     private static final String HABIT_NAME = "Habit Name";
     private static final String HABIT_MSG = "Habit Msg";
     private static final String HABIT_ID = "Habit ID";
-    private static Context context;
+    private static Context context = null;
 
     public static void setNotifier(Context c) {
         context = c;

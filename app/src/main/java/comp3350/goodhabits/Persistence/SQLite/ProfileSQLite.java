@@ -13,7 +13,7 @@ import comp3350.goodhabits.Persistence.ProfileStorageI;
 
 public class ProfileSQLite extends SQLiteOpenHelper implements ProfileStorageI {
 
-    private Profile profile = null;;
+    private Profile profile = null;
 
     public ProfileSQLite(Context context) {
         super(context, "Profile.db", null, 1);
@@ -30,7 +30,8 @@ public class ProfileSQLite extends SQLiteOpenHelper implements ProfileStorageI {
         onCreate(db);
     }
 
-    public void addToProfileStorage(Profile profile) throws SQLException {
+    public boolean addToProfileStorage(Profile profile) throws SQLException {
+        boolean result = false;
         try{
             SQLiteDatabase db = this.getWritableDatabase();
             ContentValues cv = new ContentValues();
@@ -38,10 +39,12 @@ public class ProfileSQLite extends SQLiteOpenHelper implements ProfileStorageI {
             cv.put("email", profile.getEmail());
             db.insert("Profile", null, cv);
             db.close();
+            result = true;
         }
         catch(SQLException e){
             e.printStackTrace();
         }
+        return result;
     }
 
     public Profile getProfileStorage() throws SQLException{
@@ -60,5 +63,22 @@ public class ProfileSQLite extends SQLiteOpenHelper implements ProfileStorageI {
             e.printStackTrace();
         }
         return profile;
+    }
+
+    public boolean makeProfileEmpty() throws SQLException{
+        boolean result = false;
+        if(profile !=null){
+            try{
+                SQLiteDatabase db = this.getWritableDatabase();
+                db.execSQL("delete from Profile");
+                profile = null;
+                db.close();
+                result = true;
+            }
+            catch(SQLException e){
+                e.printStackTrace();
+            }
+        }
+        return result;
     }
 }

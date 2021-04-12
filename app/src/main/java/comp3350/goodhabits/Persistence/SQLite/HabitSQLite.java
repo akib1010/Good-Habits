@@ -138,24 +138,29 @@ public class HabitSQLite extends SQLiteOpenHelper implements HabitStorageI {
         return habitList.size();
     }
 
-    public void makeListEmpty() throws SQLException{
-        try{
-            SQLiteDatabase db = this.getWritableDatabase();
-            db.execSQL("delete from Habits");
-            habitList.clear();
-            db.close();
-        }
-        catch(SQLException e){
-            e.printStackTrace();
-        }
-    }
-
     public boolean deleteHabitByIndex(int index){
         boolean result = false;
         Habit habit = habitList.remove(index);
         if(habit != null){
             deleteHabit(habit);
             result = true;
+        }
+        return result;
+    }
+
+    public boolean makeHabitListEmpty() throws SQLException{
+        boolean result = false;
+        if(habitList.size() != 0){
+            try{
+                SQLiteDatabase db = this.getWritableDatabase();
+                db.execSQL("delete from Habits");
+                habitList.clear();
+                db.close();
+                result = true;
+            }
+            catch(SQLException e){
+                e.printStackTrace();
+            }
         }
         return result;
     }

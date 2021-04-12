@@ -15,8 +15,7 @@ public class ProfileManagerTest {
     @Before
     public void setup()
     {
-        new ProfileManager(new ProfileStorage());
-
+        ProfileManager.createDB(new ProfileStorage());
     }
 
     @Test

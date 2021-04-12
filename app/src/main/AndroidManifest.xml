@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GoodHabits">
         <activity android:name=".Presentation.DetailActivity" />
-        <activity android:name=".Presentation.MainActivity" />
+        <activity android:name=".Presentation.HomeActivity" />
         <activity android:name=".Presentation.ProfileActivity" />
         <activity android:name=".Presentation.SettingsActivity" />
         <activity android:name=".Presentation.AllHabitsActivity" />

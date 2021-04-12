@@ -72,7 +72,8 @@ public class HabitStorage implements HabitStorageI {
         return result;
     }
 
-    public void makeListEmpty(){
+    public boolean makeHabitListEmpty(){
         habitStorage.clear();
+        return true;
     }
 }
