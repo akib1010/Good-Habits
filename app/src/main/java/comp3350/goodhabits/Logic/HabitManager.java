@@ -78,7 +78,7 @@ public class HabitManager{
 
     public static void deleteHabitByIndex(int index){
         //Cancel the notification of the habit that is deleted
-        Habit habit=getHabitByIndex(index);
+        Habit habit = getHabitByIndex(index);
         Notifier.cancelAlarm(habit.getId());
         habitStorage.deleteHabitByIndex(index);
     }
@@ -132,5 +132,18 @@ public class HabitManager{
                 count += 1;
         }
         return count;
+    }
+
+    public static Habit getHabitById(int id)
+    {
+        Habit habit = null;
+        for (int i=0; i<habitStorage.getHabitListSize(); i++)
+        {
+            if(habitStorage.getHabitList().get(i).getId() == id)
+            {
+                habit = habitStorage.getHabitList().get(i);
+            }
+        }
+        return habit;
     }
 }

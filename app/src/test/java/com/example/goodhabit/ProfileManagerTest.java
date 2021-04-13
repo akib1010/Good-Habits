@@ -21,7 +21,7 @@ public class ProfileManagerTest {
     @Test
     public void TestAddToProfileStorage()
     {
-        Profile profile=new Profile("Admin","Admin@myumanitoba.ca");
+        Profile profile = new Profile("Admin","Admin@myumanitoba.ca");
         ProfileManager.addToProfileStorage(profile);
         assertEquals(ProfileManager.getProfileStorage().getName(), profile.getName());
     }
