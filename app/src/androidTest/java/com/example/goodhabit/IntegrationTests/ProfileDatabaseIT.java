@@ -34,10 +34,6 @@ public class ProfileDatabaseIT {
         assertNotNull(ProfileManager.getProfileStorage());
     }
 
-    public void makeProfileEmpty(){
-        assertTrue(ProfileManager.makeProfileEmpty());
-    }
-
     @After
     public void teardown(){
         ProfileManager.makeProfileEmpty();

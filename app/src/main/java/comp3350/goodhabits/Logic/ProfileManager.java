@@ -23,8 +23,10 @@ public class ProfileManager {
         return profileStorage.getProfileStorage();
     }
 
-    public static boolean makeProfileEmpty(){
-        return profileStorage.makeProfileEmpty();
+    public static void makeProfileEmpty(){
+        if (profileStorage.makeProfileEmpty()){
+            profileStorage = null;
+        }
     }
 
 }
