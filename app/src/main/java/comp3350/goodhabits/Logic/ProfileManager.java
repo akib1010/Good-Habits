@@ -1,7 +1,6 @@
 package comp3350.goodhabits.Logic;
 
 import comp3350.goodhabits.Objects.Profile;
-import comp3350.goodhabits.Persistence.HabitStorageI;
 import comp3350.goodhabits.Persistence.ProfileStorageI;
 
 public class ProfileManager {

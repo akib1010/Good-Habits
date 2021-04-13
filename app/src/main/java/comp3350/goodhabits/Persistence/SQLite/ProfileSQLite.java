@@ -13,10 +13,11 @@ import comp3350.goodhabits.Persistence.ProfileStorageI;
 
 public class ProfileSQLite extends SQLiteOpenHelper implements ProfileStorageI {
 
-    private Profile profile = null;
+    private Profile profile;
 
     public ProfileSQLite(Context context) {
         super(context, "Profile.db", null, 1);
+        profile = null;
     }
 
     @Override
