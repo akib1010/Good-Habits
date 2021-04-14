@@ -7,7 +7,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 
 public class HabitManager{
-
+    public static boolean test=false;//Set to true while testing
     private static HabitStorageI habitStorage = null;
 
     public static void createDB(HabitStorageI db) {
@@ -23,17 +23,21 @@ public class HabitManager{
     }
 
     public static boolean addHabit(Habit habit){
-        //Set the notification for the habit
-        Notifier.setHabitNotification(habit);
+        if(!test) {
+            //Set the notification for the habit
+            Notifier.setHabitNotification(habit);
+        }
         return habitStorage.addHabit(habit);
     }
     
     public static boolean updateHabit(Habit habit)
     {
-        //Cancel the notification for the old time
-        Notifier.cancelAlarm(habit.getId());
-        //Set a notification for the new time
-        Notifier.setHabitNotification(habit);
+        if(!test) {
+            //Cancel the notification for the old time
+            Notifier.cancelAlarm(habit.getId());
+            //Set a notification for the new time
+            Notifier.setHabitNotification(habit);
+        }
         return habitStorage.updateHabit(habit);
     }
 
@@ -63,8 +67,10 @@ public class HabitManager{
     }
 
     public static boolean deleteHabit(Habit habit){
-        //Cancel the notification of the habit that is deleted
-        Notifier.cancelAlarm(habit.getId());
+        if(!test) {
+            //Cancel the notification of the habit that is deleted
+            Notifier.cancelAlarm(habit.getId());
+        }
         return habitStorage.deleteHabit(habit);
     }
 
@@ -77,9 +83,11 @@ public class HabitManager{
     }
 
     public static void deleteHabitByIndex(int index){
+        if(!test){
         //Cancel the notification of the habit that is deleted
         Habit habit = getHabitByIndex(index);
         Notifier.cancelAlarm(habit.getId());
+        }
         habitStorage.deleteHabitByIndex(index);
     }
 

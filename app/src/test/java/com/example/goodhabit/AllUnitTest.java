@@ -15,7 +15,12 @@ import org.junit.runners.Suite;
         TimeTest.class,
         HabitTest.class,
         ProfileTest.class,
-        ProfileManagerTest.class
+        ProfileManagerTest.class,
+        HabitStorageTest.class,
+        HabitSqlTest.class,
+        HabitManagerTest.class,
+        NotifierTest.class,
+        RatingManagerTest.class
 })
 public class AllUnitTest {
 

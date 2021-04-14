@@ -13,7 +13,7 @@ import java.util.Random;
 public class QuoteManager {
 
     //Fields
-    private ArrayList<String> allQuotes = new ArrayList<>();
+    public ArrayList<String> allQuotes = new ArrayList<>();
     private final Context quoteContext;
     private static boolean testMode = false;
 

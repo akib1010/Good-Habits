@@ -76,4 +76,18 @@ public class HabitStorage implements HabitStorageI {
         habitStorage.clear();
         return true;
     }
+
+    public Habit getHabitById(int id)
+    {
+        Habit habit=null;
+        for(int i=0;i<habitStorage.size();i++)
+        {
+            if(habitStorage.get(i).getId()==id)
+            {
+                habit=habitStorage.get(i);
+            }
+        }
+        return habit;
+
+    }
 }
