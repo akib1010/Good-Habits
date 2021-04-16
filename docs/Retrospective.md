@@ -1,4 +1,34 @@
-# Retrosprective 
+# Retrosprective Iteration 3
+After completion of iteration 2 we reassessed our work as we faced some major problems in completing tasks. We focused on testing in iteration 3 as well as aimed to complete required features.
+
+**What went well?**
+* Initial planning was good.
+
+**What went poorly**?
+* Work distribution was still a bit off with too much work assigned to a single person.
+
+**What major actions took place in iteration 3?**
+* Work was divided more evenly.   
+* 3 types testing was divided among 3 members.
+* We refactored code that was pointed out in iteration 2 earlier in iteration 3.
+* We did achieve what we ultimatly planned for iteration 3 that major features were completed and test  
+
+**pushed features**  
+* These two feature we pushed as they had medium to low priority and didn't change much of the project.
+    * [Dark Mode](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group-12/good-habits-a02-12/-/issues/12)  
+    * [Daily task schedule](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group-12/good-habits-a02-12/-/issues/11)  
+
+
+**How can we improve in future iteration?**
+* Similar approach of work distribution among members.
+* Good planning before implementation.
+
+**Velocity Chart**  
+
+Velocity chart shows that we improved from iteration 2 in completing overall tasks.
+![Velocity](docs/Velocity.png)
+
+# Retrosprective Iteration 2
 After completion of iteration 1 we had planned to move what had worked from iteration 1 to iteration 2.  
 
 **What went well?**
