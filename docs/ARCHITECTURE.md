@@ -8,7 +8,8 @@ GoodHabits app is based on 3 tier architechture
 ### Visualization 
 ---
 #### Iteration 3
-![Architecture](/docs/Architecture3.png)---
+![Architecture](/docs/Architecture3.png)
+---
 #### Iteration 2
 ![Architecture](/docs/Architecture2.png)
 ---
