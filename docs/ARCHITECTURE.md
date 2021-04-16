@@ -7,6 +7,8 @@ GoodHabits app is based on 3 tier architechture
 
 ### Visualization 
 ---
+#### Iteration 3
+![Architecture](/docs/Architecture3.png)---
 #### Iteration 2
 ![Architecture](/docs/Architecture2.png)
 ---
@@ -54,11 +56,11 @@ DetailActivity
 #### **Logic Layer**
 Logic layer consists of Time picker files and Object Manager files 
 ```
-DateParser
+DateManager
     Calculates dates passed after a Habit object is created.
 ```
 ```
-TimeParser
+TimeManager
     Helps to display the time in 12-hour format.
 ```
 ```
@@ -73,6 +75,27 @@ HabitManager
 ProfileManager
     Links presentation Profile object with persistence storage.
 ```
+```
+QouteManager
+    Manages the daily quotes on the home screen
+```
+```
+HabitAlertReceiver
+    Helps in recieving habit notification
+```
+```
+NotificationHelper
+    Helps in handling notification alerts
+```
+```
+Notifier
+    Sends information about the notification
+```
+```
+RatingManager
+    Manages the rating progress bar of the application
+```
+
 
 
 ### **Persistence Layer**
