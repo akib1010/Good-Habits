@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import comp3350.goodhabits.Logic.DateManager;
 import comp3350.goodhabits.Logic.HabitManager;
@@ -137,11 +138,15 @@ public class DetailActivity extends AppCompatActivity implements TimePickerDialo
 
     public void increaseCheckIn(){
         if (habit.getDaysCheckedIn() < DCI){
-            if(habit.getDaysCheckedIn() < days) {
+            if (habit.getDaysCheckedIn() < days) {
                 habit.increaseCheckIn();
                 HabitManager.updateHabit(habit);
                 checkins.setText(String.valueOf(habit.getDaysCheckedIn()));
                 progressBar.setProgress(habit.getDaysCheckedIn());
+            }
+            else {
+
+                Toast.makeText(this,"Maximum check in for the days has been reached!",Toast.LENGTH_SHORT).show();
             }
         }
     }
