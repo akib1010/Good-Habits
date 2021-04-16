@@ -5,14 +5,16 @@
 * [Test Folder](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group-12/good-habits-a02-12/-/tree/master/app/src/androidTest/java/com/example/goodhabit)
 ### What technical debt has been cleaned up?
 Our ```HabitManager``` and ```ProfileManager``` were being initialized using constructors, which is not a characteristic of a ```Singleton Design Pattern```. This has been fixed by using a public method to initialize the private variables.
+
 [commit](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group-12/good-habits-a02-12/-/commit/6da6ad8895d215d65fe742393c398f4e352fa28f)
 
 ### What technical debt did you leave?
 **Deliberate Prudent**
+
 Every ```object``` of ```Notifier Class``` is initialized with a ```Context```, which we cannot get in a ```non-activity class ```. This limits us from using instances from this class in a more flexible way. 
 
 ### Discuss a Feature or User Story that cut/re-prioritized
-As three features were pushed to iteration 3 two features from iteration 3 [Dark mode](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group-12/good-habits-a02-12/-/issues/12) and  [Daily task schedule](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group-12/good-habits-a02-12/-/issues/11) were dropped both these features had low to medium priority which didn't impact the overall core of the project.
+As three features from iteration 2 were pushed to iteration 3 two features from iteration 3 [Dark mode](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group-12/good-habits-a02-12/-/issues/12) and  [Daily task schedule](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group-12/good-habits-a02-12/-/issues/11) were dropped. Both these features had low to medium priority which didn't impact the overall core of the project.
 
 ### Acceptance test/end-to-end
 **End-to-end Acceptance test for adding a habit**
