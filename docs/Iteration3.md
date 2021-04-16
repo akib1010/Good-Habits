@@ -33,3 +33,11 @@ We could not test the UI notifications for the application because notifications
 ### Velocity/teamwork
 ![Velocity](docs/Velocity.png)
 Over-all throughout the project our esitmates were fairly accurate and got better execpt for iteration 2. As in iteration 2 we had trouble implementing database and with same reason some tasks were pushed to iteration 3. Velocity chart accuratly describes our work that was commmited and work that was done.
+
+### Retrospective
+
+[Retrospective](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group-12/good-habits-a02-12/-/blob/master/docs/Retrospective.md)
+
+### Architecture
+
+[Architecture](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group-12/good-habits-a02-12/-/blob/master/docs/ARCHITECTURE.md)
